@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="white-transpBG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500 2500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f6f6f6;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M571.45,244.33h418.64v1328.27l421.22-689.98h465.15l-354.03,545.26,405.72,702.9h-480.66l-299.77-540.09h-157.63v540.09h-418.64V244.33Z"/>
+  <rect class="cls-1" x="572.56" y="2184.53" width="1356" height="71.14"/>
+  <rect class="cls-1" x="1412.56" y="764.39" width="463" height="71.14"/>
+</svg>

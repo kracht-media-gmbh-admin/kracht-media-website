@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projekte" },
+  { href: "/about", label: "Über uns" },
+  { href: "/contact", label: "Kontakt" },
+] as const;
+
 export function Navbar() {
   return (
     <header
@@ -20,29 +27,20 @@ export function Navbar() {
         >
           Kracht Media
         </Link>
-        <ul className="flex items-center gap-6 sm:gap-8">
-          <li>
-            <Link
-              href="/#projekte"
-              className={cn(
-                "text-sm font-medium text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
-                "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
-              )}
-            >
-              Projekte
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/#kontakt"
-              className={cn(
-                "text-sm font-medium text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
-                "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
-              )}
-            >
-              Kontakt
-            </Link>
-          </li>
+        <ul className="flex items-center gap-4 sm:gap-6 lg:gap-8">
+          {navLinks.map(({ href, label }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className={cn(
+                  "text-sm font-medium text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
+                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
+                )}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

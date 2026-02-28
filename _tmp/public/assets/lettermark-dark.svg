@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500 2500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #f6f6f6;
+      }
+
+      .cls-3 {
+        fill: #1c362b;
+      }
+    </style>
+  </defs>
+  <g id="White-greenBG">
+    <rect id="BG" class="cls-3" width="2500" height="2500"/>
+    <g>
+      <path class="cls-2" d="M571.45,244.83h418.64v1328.27l421.22-689.98h465.15l-354.03,545.26,405.72,702.9h-480.66l-299.77-540.09h-157.63v540.09h-418.64V244.83Z"/>
+      <rect class="cls-2" x="572.56" y="2184.03" width="1356" height="71.14"/>
+      <rect class="cls-2" x="1412.56" y="760.89" width="463" height="71.14"/>
+    </g>
+  </g>
+  <g id="green-transpBG">
+    <rect class="cls-1" x="641" y="0" width="161" height="279"/>
+  </g>
+</svg>

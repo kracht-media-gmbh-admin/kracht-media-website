@@ -1,13 +1,13 @@
 "use client";
 
 import { useActionState } from "react";
-import { sendEmail } from "@/app/actions/send-email";
+import { send } from "@/app/actions/send";
 import { cn } from "@/lib/utils";
 
 const initialState = null;
 
 export function ContactForm({ className }: { className?: string }) {
-  const [state, formAction, isPending] = useActionState(sendEmail, initialState);
+  const [state, formAction, isPending] = useActionState(send, initialState);
 
   return (
     <form
