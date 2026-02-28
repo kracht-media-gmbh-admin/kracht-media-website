@@ -1,17 +1,12 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 /**
- * CTA button: creative message, redirects to contact page.
+ * CTA button: creative message, links to contact page.
  */
 export function FooterCtaToggle() {
-  const router = useRouter();
-
   return (
-    <button
-      type="button"
-      onClick={() => router.push("/contact")}
+    <Link
+      href="/contact"
       aria-label="Zum Kontakt – gemeinsam KRACH machen"
       className="
         btn-hover px-6 py-3 rounded-full font-semibold text-baby-powder
@@ -21,6 +16,6 @@ export function FooterCtaToggle() {
       "
     >
       Kontakt aufnehmen
-    </button>
+    </Link>
   );
 }

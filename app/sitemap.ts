@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllProjectSlugs } from "@/lib/projects-data";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://krachtmedia.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kracht.at";
 
 /**
  * Statische Routen (alle festen Seiten; dynamische z. B. projects/[slug] kommen unten).

@@ -1,6 +1,6 @@
 import { COMPANY_INFO } from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://krachtmedia.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kracht.at";
 
 /**
  * Schema.org JSON-LD für LocalBusiness (Fotografie, Videografie, IT-Services).

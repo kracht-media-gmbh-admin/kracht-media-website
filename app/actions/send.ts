@@ -1,9 +1,7 @@
 "use server";
 
-import { headers } from "next/headers";
 import { Resend } from "resend";
 import { contactFormSchema } from "@/lib/contact-schema";
-import { checkRateLimitInMemory, getClientIdentifier } from "@/lib/rate-limit";
 
 const TO_EMAIL = "admin@kracht.at";
 const DIRECT_EMAIL = "office@kracht.at";
@@ -40,13 +38,6 @@ export async function send(
   }
 
   const { name, email, message } = parsed.data;
-
-  const headersList = await headers();
-  const identifier = getClientIdentifier(headersList);
-  const rateLimit = checkRateLimitInMemory(identifier);
-  if (!rateLimit.ok) {
-    return { success: false, message: rateLimit.message };
-  }
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
