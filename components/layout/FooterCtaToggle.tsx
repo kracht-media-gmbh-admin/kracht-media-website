@@ -20,7 +20,7 @@ export function FooterCtaToggle() {
         focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-kracht-gruen
       "
     >
-      Ja, ich will mitmachen – Kontakt aufnehmen
+      Kontakt aufnehmen
     </button>
   );
 }
