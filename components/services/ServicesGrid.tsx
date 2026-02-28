@@ -18,18 +18,18 @@ export function ServicesGrid({ categories }: ServicesGridProps) {
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
 
   return (
-    <div className="flex flex-col gap-16 sm:gap-20 lg:gap-24">
+    <div className="flex flex-col gap-20 sm:gap-24 lg:gap-32">
       {categories.map((category, categoryIndex) => {
         const blockStagger = getStaggerClass(categoryIndex);
         return (
           <section
             key={category.id}
             id={category.id}
-            className={`${blockStagger} scroll-mt-24 rounded-card border border-[#E5E5E5] bg-baby-powder/80 p-6 shadow-[var(--shadow-card)] sm:p-8 lg:p-10 max-sm:shadow-none`}
+            className={`${blockStagger} scroll-mt-24`}
             aria-labelledby={`${category.id}-heading`}
           >
-            {/* Category header – clearly separate from items */}
-            <header className="mb-8 border-b border-kracht-gruen/10 pb-8 sm:mb-10 sm:pb-10 lg:mb-12 lg:pb-12">
+            {/* Category header – no outer box, content on page background */}
+            <header className="mb-10 border-b border-[#E5E5E5] pb-10 sm:mb-12 sm:pb-12 lg:mb-14 lg:pb-14">
               <span
                 className="mb-2 block text-xs font-semibold uppercase tracking-wider text-orange-web"
                 aria-hidden
@@ -43,30 +43,36 @@ export function ServicesGrid({ categories }: ServicesGridProps) {
               >
                 {category.title}
               </h2>
-              <p className="max-w-2xl text-sm leading-[1.55] text-kracht-gruen/80 sm:text-base">
+              <p className="max-w-2xl text-sm leading-[1.6] text-kracht-gruen/80 sm:text-base">
                 {category.teaser}
               </p>
             </header>
 
-            {/* Service cards grid – only this category’s items */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+            {/* Service list: single column, 1px dividers, no card boxes */}
+            <ul className="flex flex-col" role="list">
               {category.items.map((item, itemIndex) => {
                 const itemKey = `${category.id}-${item.label}`;
                 const isExpanded = expandedKey === itemKey;
+                const isLast = itemIndex === category.items.length - 1;
                 return (
-                  <ExpandableServiceCard
+                  <li
                     key={itemKey}
-                    item={item}
-                    categoryId={category.id}
-                    isExpanded={isExpanded}
-                    onToggle={() =>
-                      setExpandedKey((k) => (k === itemKey ? null : itemKey))
-                    }
-                    staggerClass={getStaggerClass(itemIndex)}
-                  />
+                    className={isLast ? "" : "border-b border-[#E5E5E5]"}
+                  >
+                    <ExpandableServiceCard
+                      item={item}
+                      categoryId={category.id}
+                      isExpanded={isExpanded}
+                      onToggle={() =>
+                        setExpandedKey((k) => (k === itemKey ? null : itemKey))
+                      }
+                      staggerClass={getStaggerClass(itemIndex)}
+                      flat
+                    />
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </section>
         );
       })}

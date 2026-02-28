@@ -16,7 +16,7 @@ export default function ServicesPage() {
     <main className="min-h-screen" id="main-services">
       {/* Hero */}
       <section
-        className="mx-auto max-w-6xl px-4 pt-14 pb-12 sm:px-6 sm:pt-20 sm:pb-16 lg:px-8 lg:pt-24 lg:pb-20"
+        className="mx-auto max-w-6xl px-4 pt-14 pb-16 sm:px-6 sm:pt-20 sm:pb-20 lg:px-8 lg:pt-24 lg:pb-24"
         aria-labelledby="leistungen-heading"
       >
         <h1
@@ -37,7 +37,7 @@ export default function ServicesPage() {
 
       {/* Three distinct blocks: Events, Design, IT-Service */}
       <section
-        className="mx-auto max-w-6xl px-4 pb-8 sm:px-6 sm:pb-12 lg:px-8"
+        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28"
         aria-label="Leistungsbereiche"
       >
         <ServicesGrid categories={serviceCategories} />
@@ -45,7 +45,7 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section
-        className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32"
+        className="mx-auto max-w-6xl px-4 pt-20 pb-24 sm:px-6 sm:pt-28 sm:pb-28 lg:px-8 lg:pt-32 lg:pb-32"
         aria-labelledby="cta-heading"
       >
         <div className="rounded-card border border-[#E5E5E5] bg-kracht-gruen/5 py-12 px-8 text-center sm:py-16 sm:px-12 max-sm:shadow-none shadow-[var(--shadow-card)]">
