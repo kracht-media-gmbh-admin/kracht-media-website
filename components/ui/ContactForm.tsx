@@ -10,7 +10,7 @@ export function ContactForm({ className }: { className?: string }) {
   const [state, formAction, isPending] = useActionState(send, initialState);
 
   const inputClass =
-    "mt-2 w-full rounded-xl border border-kracht-gruen/15 bg-baby-powder px-4 py-3 text-base text-kracht-gruen placeholder-kracht-gruen/40 transition focus:border-orange-web focus:outline-none focus:ring-2 focus:ring-orange-web/20";
+    "mt-2 w-full border-0 border-b border-kracht-gruen/20 bg-transparent px-0 py-3 text-base text-kracht-gruen placeholder-kracht-gruen/40 transition focus:border-orange-web focus:outline-none focus:ring-0 rounded-none";
 
   return (
     <form
@@ -65,7 +65,7 @@ export function ContactForm({ className }: { className?: string }) {
           rows={4}
           required
           disabled={isPending}
-          className={cn(inputClass, "resize-y min-h-[120px]")}
+          className={cn(inputClass, "resize-y min-h-[120px] border-b")}
         />
       </div>
       {state?.message && (
