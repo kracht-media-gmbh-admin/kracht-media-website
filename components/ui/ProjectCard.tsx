@@ -34,8 +34,13 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
           placeholder="blur"
           blurDataURL={blurDataUrl}
         />
+        {/* Permanent bottom scrim so text overlays stay legible on any image */}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-kracht-gruen/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-kracht-gruen/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
           aria-hidden
         />
       </div>

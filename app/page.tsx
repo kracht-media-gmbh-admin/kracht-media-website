@@ -20,8 +20,14 @@ export default function Home() {
         className="mx-auto max-w-6xl px-4 pt-14 pb-20 sm:px-6 sm:pt-20 sm:pb-24 lg:px-8 lg:pt-28 lg:pb-32"
         aria-labelledby="hero-heading"
       >
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24 lg:items-center">
           <div className="animate-in animate-in-1">
+            <p
+              className="text-xs font-semibold uppercase tracking-[0.25em] text-kracht-gruen/70 mb-4"
+              aria-hidden
+            >
+              Kein Kastl-Denken – klare Formen, starke Inhalte.
+            </p>
             <h1
               id="hero-heading"
               className="text-4xl font-bold leading-[1.08] tracking-tight text-kracht-gruen sm:text-5xl md:text-6xl lg:text-7xl"
@@ -38,31 +44,39 @@ export default function Home() {
               </span>
             </h1>
             <p
-              className="max-w-xl text-lg leading-[1.45] text-kracht-gruen/90 sm:text-xl"
+              className="max-w-xl text-lg leading-[1.6] text-kracht-gruen/90 sm:text-xl"
               style={{ marginTop: "1.25rem" }}
             >
               Kraftvoll, präzise, reduziert. Wir schaffen Filme, Design und
-              digitale Erlebnisse mit Stabilität und klarer Botschaft.
-            </p>
-            <p
-              className="mt-5 max-w-xl text-base leading-[1.5] text-kracht-gruen/75"
-              style={{ marginTop: "1.25rem" }}
-            >
-              Kein Kastl-Denken – klare Formen, starke Inhalte. Für Marken und
-              Projekte, die gehört werden wollen.
+              digitale Erlebnisse mit Stabilität und klarer Botschaft. Für Marken
+              und Projekte, die gehört werden wollen.
             </p>
           </div>
-          <div className="relative animate-in animate-in-2 aspect-[16/10] overflow-hidden rounded-card border border-[#E5E5E5] shadow-[var(--shadow-card)] sm:aspect-video max-sm:shadow-none">
-            <Image
-              src={HERO_IMAGE}
-              alt="Kracht Media – visuelle Produktion"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-              priority
-              placeholder="blur"
-              blurDataURL={BLUR}
+          {/* Desktop: image bleeds right, overlaps soft background shape; Mobile: edge-to-edge with bottom radii */}
+          <div className="relative animate-in animate-in-2 max-sm:w-[100vw] max-sm:relative max-sm:left-1/2 max-sm:right-1/2 max-sm:-ml-[50vw] max-sm:-mr-[50vw] lg:pr-0 lg:-mr-[max(2rem,calc((100vw-72rem)/2+2rem))]">
+            <div
+              className="absolute -inset-4 top-0 bottom-0 -z-10 hidden lg:block rounded-l-3xl bg-kracht-gruen/[0.06]"
+              aria-hidden
             />
+            <div
+              className={[
+                "relative aspect-[16/10] overflow-hidden sm:aspect-video",
+                "max-sm:rounded-none max-sm:rounded-b-2xl",
+                "sm:rounded-card sm:border sm:border-[#E5E5E5] sm:shadow-[var(--shadow-card)]",
+                "lg:rounded-l-card lg:rounded-r-none lg:border-r-0",
+              ].join(" ")}
+            >
+              <Image
+                src={HERO_IMAGE}
+                alt="Kracht Media – visuelle Produktion"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 60vw"
+                className="object-cover"
+                priority
+                placeholder="blur"
+                blurDataURL={BLUR}
+              />
+            </div>
           </div>
         </div>
       </section>
