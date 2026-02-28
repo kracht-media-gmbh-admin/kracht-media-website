@@ -22,7 +22,7 @@ export default function ServicesPage() {
       >
         <h1
           id="leistungen-heading"
-          className="animate-in animate-in-1 text-4xl font-bold leading-[1.08] tracking-tight text-kracht-gruen sm:text-5xl md:text-6xl"
+          className="animate-in animate-in-1 text-3xl font-bold leading-[1.08] tracking-tight text-kracht-gruen break-words sm:text-4xl md:text-5xl lg:text-6xl"
           style={{ marginBottom: "0.4em" }}
         >
           Leistungen

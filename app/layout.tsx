@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import { defaultMetadata } from "@/lib/metadata";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { ExternalScripts } from "@/components/analytics/ExternalScripts";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import "./globals.css";
@@ -49,8 +50,9 @@ export default function RootLayout({
           Zum Inhalt springen
         </a>
         <ThemeProvider>
+          <ScrollToTop />
           <Navbar />
-          <div id="main" className="flex-1" role="main">
+          <div id="main" className="flex-1 min-w-0 overflow-x-hidden" role="main">
             {children}
           </div>
           <Footer />

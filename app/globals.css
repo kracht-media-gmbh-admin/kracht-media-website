@@ -10,15 +10,17 @@
 
 :root {
   --kracht-gruen: #1c3628;
+  --kracht-gruen-warm: #1f3d2e;
   --baby-powder: #fffefa;
   --orange-web: #ff9f1c;
+  --orange-web-soft: #e89219;
   --font-montserrat: var(--font-montserrat), system-ui, sans-serif;
   --leading-headline: 1.1;
   --leading-body: 1.6;
   --text-body: 16px;
-  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.03);
-  --shadow-card: 0 24px 48px rgba(0, 0, 0, 0.04);
-  --shadow-card-hover: 0 24px 48px rgba(0, 0, 0, 0.06);
+  --shadow-soft: 0 4px 16px rgba(28, 54, 40, 0.04);
+  --shadow-card: 0 24px 48px rgba(28, 54, 40, 0.06);
+  --shadow-card-hover: 0 24px 48px rgba(28, 54, 40, 0.08);
   --shadow-button-hover: 0 8px 24px rgba(28, 54, 40, 0.2);
   --bg-page: var(--baby-powder);
   --text-page: var(--kracht-gruen);
@@ -56,7 +58,9 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -71,6 +75,10 @@ body {
   font-size: var(--text-body);
   line-height: var(--leading-body);
   transition: background-color 0.2s ease, color 0.2s ease;
+  overflow-x: hidden;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Subtle paper texture overlay (light grain) */
