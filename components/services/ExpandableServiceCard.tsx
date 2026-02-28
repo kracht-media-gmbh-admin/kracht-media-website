@@ -36,7 +36,7 @@ export function ExpandableServiceCard({
       aria-labelledby={`${cardId}-label`}
       className={cn(
         staggerClass,
-        "flex flex-col overflow-hidden rounded-xl border border-kracht-gruen/12 bg-baby-powder text-left shadow-[var(--shadow-soft)] transition-all duration-300",
+        "flex flex-col overflow-hidden rounded-xl border border-kracht-gruen/12 bg-baby-powder text-left shadow-[var(--shadow-soft)] transition-all duration-150 ease-out",
         "hover:border-kracht-gruen/20 hover:shadow-[var(--shadow-card)]",
         "focus-within:ring-2 focus-within:ring-orange-web focus-within:ring-offset-2 focus-within:ring-offset-baby-powder",
         canExpand && "active:scale-[0.98] motion-reduce:active:scale-100",
@@ -52,7 +52,7 @@ export function ExpandableServiceCard({
         aria-expanded={isExpanded}
         id={`${cardId}-label`}
         className={cn(
-          "flex w-full items-center justify-between gap-3 px-5 py-4 transition-colors sm:px-6 sm:py-5",
+          "flex w-full items-center justify-between gap-3 px-5 py-4 transition-colors duration-150 sm:px-6 sm:py-5",
           canExpand && "cursor-pointer hover:bg-kracht-gruen/5",
           !canExpand && "cursor-default"
         )}
@@ -63,7 +63,7 @@ export function ExpandableServiceCard({
         {canExpand && (
           <span
             className={cn(
-              "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-kracht-gruen/20 text-kracht-gruen transition-all duration-200",
+              "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-kracht-gruen/20 text-kracht-gruen transition-all duration-150 ease-out",
               isExpanded && "border-orange-web bg-orange-web/15 rotate-180",
               canExpand && "group-hover:border-orange-web/50"
             )}
@@ -94,7 +94,7 @@ export function ExpandableServiceCard({
         role="region"
         aria-labelledby={`${cardId}-label`}
         className={cn(
-          "grid transition-[grid-template-rows] duration-300 ease-out",
+          "grid transition-[grid-template-rows] duration-200 ease-out",
           isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         )}
       >

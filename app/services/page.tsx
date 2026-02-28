@@ -35,9 +35,9 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      {/* Staggered grid: Kategorie-Karten (2x2) + expandable Service-Karten */}
+      {/* Three distinct blocks: Events, Design, IT-Service */}
       <section
-        className="mx-auto max-w-6xl px-4 pb-4 sm:px-6 lg:px-8"
+        className="mx-auto max-w-6xl px-4 pb-8 sm:px-6 sm:pb-12 lg:px-8"
         aria-label="Leistungsbereiche"
       >
         <ServicesGrid categories={serviceCategories} />
