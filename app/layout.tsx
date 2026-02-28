@@ -49,14 +49,17 @@ export default function RootLayout({
         >
           Zum Inhalt springen
         </a>
-        <ThemeProvider>
-          <ScrollToTop />
-          <Navbar />
-          <div id="main" className="flex-1 min-w-0 overflow-x-hidden" role="main">
-            {children}
-          </div>
-          <Footer />
-        </ThemeProvider>
+        {/* Wrapper: overflow-x here so body stays the scroll container and avoids first-scroll jump bug */}
+        <div className="flex min-h-screen w-full flex-1 flex-col overflow-x-hidden min-w-0">
+          <ThemeProvider>
+            <ScrollToTop />
+            <Navbar />
+            <div id="main" className="flex-1 min-w-0" role="main">
+              {children}
+            </div>
+            <Footer />
+          </ThemeProvider>
+        </div>
         <ExternalScripts />
       </body>
     </html>
