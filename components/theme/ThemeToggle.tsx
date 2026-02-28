@@ -13,7 +13,7 @@ export function ThemeToggle() {
       onClick={toggle}
       className="
         flex h-9 w-9 items-center justify-center rounded-full
-        text-white/80 transition-colors duration-200
+        text-white/90 transition-colors duration-200
         hover:bg-white/10 hover:text-orange-web
         focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-kracht-gruen
       "

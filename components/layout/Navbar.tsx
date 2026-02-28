@@ -120,7 +120,7 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile: dropdown menu */}
+      {/* Mobile: dropdown menu – when hidden, links are non-focusable (a11y) */}
       <div
         id="mobile-nav"
         className={cn(
@@ -137,6 +137,7 @@ export function Navbar() {
                 <Link
                   href={href}
                   onClick={closeMenu}
+                  tabIndex={mobileOpen ? undefined : -1}
                   className={cn(
                     "block px-4 py-3 text-base font-medium transition-colors duration-200",
                     isDark
