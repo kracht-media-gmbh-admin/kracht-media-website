@@ -90,6 +90,16 @@ export function ContactForm({ className }: { className?: string }) {
       >
         {isPending ? "Wird gesendet …" : "Nachricht senden"}
       </button>
+      <p className="text-xs leading-relaxed text-kracht-gruen/50">
+        Mit dem Absenden dieser Anfrage werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht)
+        zur Bearbeitung Ihres Anliegens verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b
+        und f DSGVO. Die Übermittlung erfolgt verschlüsselt über Resend (USA). Weitere
+        Informationen finden Sie in unserer{" "}
+        <a href="/datenschutz" className="underline underline-offset-2 hover:text-kracht-gruen/80 transition-colors">
+          Datenschutzerklärung
+        </a>
+        .
+      </p>
     </form>
   );
 }
