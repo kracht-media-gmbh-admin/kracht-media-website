@@ -3,20 +3,15 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-
-const KRACHT_ADDRESS = {
-  name: "Kracht Media GmbH",
-  street: "Musterstraße 1",
-  city: "12345 Stadt",
-};
+import { COMPANY_INFO, LEGAL_ROUTES } from "@/lib/site";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
+  const { name, address, phone, email: emailInfo } = COMPANY_INFO;
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Platzhalter: später mit Server Action oder API anbinden
     setEmail("");
   };
 
@@ -25,7 +20,6 @@ export function Footer() {
       className="border-t border-kracht-gruen/10 bg-baby-powder"
       role="contentinfo"
     >
-      {/* Mini Kontakt / Newsletter oben */}
       <div className="mx-auto max-w-6xl px-4 pt-10 pb-8 sm:px-6 lg:px-8">
         <div className="rounded-lg border border-kracht-gruen/10 bg-kracht-gruen/5 p-6 sm:p-8">
           <h3 className="text-sm font-semibold uppercase tracking-widest text-kracht-gruen/80">
@@ -55,39 +49,37 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Links + Adresse */}
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
           <address className="not-italic text-sm text-kracht-gruen/80">
-            <strong className="text-kracht-gruen">{KRACHT_ADDRESS.name}</strong>
+            <strong className="text-kracht-gruen">{name}</strong>
             <br />
-            {KRACHT_ADDRESS.street}
+            {address.street}
             <br />
-            {KRACHT_ADDRESS.city}
+            {address.zip} {address.city}
+            <br />
+            <a href={phone.href} className="text-kracht-gruen/80 hover:text-kracht-gruen">
+              {phone.display}
+            </a>
+            {" · "}
+            <a href={emailInfo.href} className="text-kracht-gruen/80 hover:text-kracht-gruen">
+              {emailInfo.display}
+            </a>
           </address>
           <ul className="flex flex-wrap gap-6 sm:gap-8">
-            <li>
-              <Link
-                href="/impressum"
-                className={cn(
-                  "text-sm text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
-                )}
-              >
-                Impressum
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/datenschutz"
-                className={cn(
-                  "text-sm text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
-                )}
-              >
-                Datenschutz
-              </Link>
-            </li>
+            {LEGAL_ROUTES.map(({ name: routeName, href }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className={cn(
+                    "text-sm text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
+                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
+                  )}
+                >
+                  {routeName}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <p className="mt-8 text-sm text-kracht-gruen/70">
