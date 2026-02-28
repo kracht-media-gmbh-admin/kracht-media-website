@@ -1,26 +1,247 @@
 @import "tailwindcss";
 
+/* ——— Kracht Media 2025 Brand Theme ——— */
+@theme {
+  --color-kracht-gruen: #1c3628;
+  --color-baby-powder: #fffefa;
+  --color-orange-web: #ff9f1c;
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --kracht-gruen: #1c3628;
+  --baby-powder: #fffefa;
+  --orange-web: #ff9f1c;
+  --font-montserrat: var(--font-montserrat), system-ui, sans-serif;
+  --leading-headline: 1.1;
+  --leading-body: 1.6;
+  --text-body: 16px;
+  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 24px 48px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 24px 48px rgba(0, 0, 0, 0.06);
+  --shadow-button-hover: 0 8px 24px rgba(28, 54, 40, 0.2);
+  --bg-page: var(--baby-powder);
+  --text-page: var(--kracht-gruen);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --bg-page: #0f1a16;
+  --text-page: var(--baby-powder);
+  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 24px 48px rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 24px 48px rgba(0, 0, 0, 0.18);
+  --shadow-button-hover: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Dark mode: make explicit kracht-gruen text/backgrounds use page colors */
+.dark .text-kracht-gruen { color: var(--baby-powder); }
+.dark .text-kracht-gruen\/75 { color: rgba(255, 254, 250, 0.75); }
+.dark .text-kracht-gruen\/80 { color: rgba(255, 254, 250, 0.8); }
+.dark .text-kracht-gruen\/85 { color: rgba(255, 254, 250, 0.85); }
+.dark .text-kracht-gruen\/90 { color: rgba(255, 254, 250, 0.9); }
+.dark .text-kracht-gruen\/70 { color: rgba(255, 254, 250, 0.7); }
+.dark .text-kracht-gruen\/60 { color: rgba(255, 254, 250, 0.6); }
+.dark .text-kracht-gruen\/40 { color: rgba(255, 254, 250, 0.4); }
+.dark .bg-baby-powder { background-color: var(--bg-page); }
+.dark .bg-baby-powder\/80 { background-color: rgba(15, 26, 22, 0.8); }
+.dark .bg-kracht-gruen\/5 { background-color: rgba(255, 254, 250, 0.05); }
+.dark .bg-kracht-gruen\/8 { background-color: rgba(255, 254, 250, 0.08); }
+.dark .bg-kracht-gruen\/10 { background-color: rgba(255, 254, 250, 0.1); }
+.dark .border-kracht-gruen\/8 { border-color: rgba(255, 254, 250, 0.08); }
+.dark .border-kracht-gruen\/10 { border-color: rgba(255, 254, 250, 0.1); }
+.dark .border-kracht-gruen\/12 { border-color: rgba(255, 254, 250, 0.12); }
+.dark .border-kracht-gruen\/15 { border-color: rgba(255, 254, 250, 0.15); }
+.dark .border-kracht-gruen\/20 { border-color: rgba(255, 254, 250, 0.2); }
+.dark .placeholder-kracht-gruen\/40::placeholder { color: rgba(255, 254, 250, 0.4); }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-page);
+  font-family: var(--font-montserrat);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Subtle paper texture overlay (light grain) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: rgba(255, 159, 28, 0.25);
+  color: var(--text-page);
+}
+
+/* Staggered fade-in for sections (respect reduced motion) */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in {
+    animation: none;
+  }
+}
+
+.animate-in-1 { animation-delay: 0.05s; opacity: 0; }
+.animate-in-2 { animation-delay: 0.15s; opacity: 0; }
+.animate-in-3 { animation-delay: 0.25s; opacity: 0; }
+.animate-in-4 { animation-delay: 0.35s; opacity: 0; }
+.animate-in-5 { animation-delay: 0.45s; opacity: 0; }
+.animate-in-6 { animation-delay: 0.55s; opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in-1, .animate-in-2, .animate-in-3,
+  .animate-in-4, .animate-in-5, .animate-in-6 {
+    animation-delay: 0s;
+    opacity: 1;
+  }
+}
+
+/* Scroll reveal: fade-in + slide-up when section enters viewport (IO in client component) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-reveal.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .scroll-reveal.scroll-reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Focus visible for keyboard nav (SEO/a11y) */
+:focus-visible {
+  outline: 2px solid #ff9f1c;
+  outline-offset: 2px;
+}
+
+/* ——— Hover effects for clickables (Kracht Media) ——— */
+/* Shared transition base for interactive elements */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@media (hover: hover) {
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift:hover {
+    transform: none;
+  }
+}
+
+/* Inline link: animated underline (left → right) */
+.link-accent {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.link-accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--orange-web);
+  transition: width 0.25s ease-out;
+}
+@media (hover: hover) {
+  .link-accent:hover::after {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .link-accent::after {
+    transition: none;
+  }
+}
+
+/* Nav link: subtle underline on hover */
+.nav-link-hover {
+  position: relative;
+}
+.nav-link-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--orange-web);
+  transition: width 0.2s ease-out;
+}
+@media (hover: hover) {
+  .nav-link-hover:hover::after {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-link-hover::after {
+    transition: none;
+  }
+}
+
+/* Button hover: premium lift + soft shadow; optional dark green variant */
+.btn-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+@media (hover: hover) {
+  .btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-button-hover);
+  }
+  .btn-hover.btn-hover-invert:hover {
+    background-color: var(--kracht-gruen);
+    color: var(--orange-web);
+    box-shadow: var(--shadow-button-hover);
+  }
+  .btn-hover:active {
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-hover:hover,
+  .btn-hover:active {
+    transform: none;
+  }
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Green-whiteBG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500 2500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f6f6f6;
+      }
+
+      .cls-2 {
+        fill: #1d362b;
+      }
+
+      .cls-3 {
+        fill: #1c362b;
+      }
+    </style>
+  </defs>
+  <rect id="BG" class="cls-1" x="2.66" width="2500" height="2500"/>
+  <g>
+    <g id="k-Logo">
+      <path class="cls-2" d="M571.65,245.57h418.64v1328.27l421.22-689.98h465.15l-354.03,545.26,405.72,702.9h-480.66l-299.77-540.09h-157.63v540.09h-418.64V245.57Z"/>
+    </g>
+    <rect class="cls-3" x="572.11" y="2183.28" width="1356" height="71.14"/>
+    <rect class="cls-3" x="1412.11" y="761.14" width="463" height="71.14"/>
+  </g>
+</svg>
