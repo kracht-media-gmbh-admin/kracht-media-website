@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects-data";
 import { buildProjectMetadata } from "@/lib/metadata";
@@ -50,8 +51,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           placeholder="blur"
           blurDataURL={blurDataUrl}
         />
-        <div className="absolute inset-0 flex flex-col justify-end bg-kracht-gruen/50 p-6 sm:p-8 md:p-10 lg:p-12">
-          <span className="text-sm font-semibold uppercase tracking-widest text-baby-powder/90">
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-kracht-gruen/80 via-kracht-gruen/30 to-transparent"
+          aria-hidden
+        />
+        <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 md:p-10 lg:p-12">
+          <Link
+            href="/projects"
+            className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-baby-powder/90 hover:text-baby-powder transition-colors w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-baby-powder focus-visible:ring-offset-2 focus-visible:ring-offset-kracht-gruen rounded"
+          >
+            <span aria-hidden>←</span> Alle Projekte
+          </Link>
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-baby-powder/90">
             {project.category}
           </span>
           <h1
@@ -63,24 +74,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </header>
 
-      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-12 md:py-16">
-        <p className="text-base leading-[1.45] text-kracht-gruen/90 sm:text-lg">
+      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
+        <p className="text-base leading-[1.55] text-kracht-gruen/90 sm:text-lg">
           {project.detailText}
         </p>
 
         {project.videoUrl && (
-          <section className="mt-10 sm:mt-12">
-            <h2 className="sr-only">Projektvideo</h2>
-            <div className="overflow-hidden rounded-lg border border-kracht-gruen/10">
+          <section className="mt-12" aria-labelledby="video-heading">
+            <h2 id="video-heading" className="sr-only">
+              Projektvideo
+            </h2>
+            <div className="overflow-hidden rounded-2xl border border-kracht-gruen/10 shadow-[var(--shadow-card)]">
               <ProjectVideo src={project.videoUrl} title={project.title} />
             </div>
           </section>
         )}
 
         {project.gallery.length > 0 && (
-          <section className="mt-12 sm:mt-16">
+          <section className="mt-16" aria-labelledby="gallery-heading">
             <h2
-              className="mb-6 text-xl font-semibold leading-[1.1] text-kracht-gruen sm:text-2xl"
+              id="gallery-heading"
+              className="text-2xl font-semibold leading-[1.15] text-kracht-gruen"
               style={{ marginBottom: "1.5rem" }}
             >
               Galerie
@@ -89,7 +103,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.gallery.map((src, i) => (
                 <li
                   key={i}
-                  className="relative aspect-[4/3] overflow-hidden rounded-lg border border-kracht-gruen/10"
+                  className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-kracht-gruen/10 shadow-[var(--shadow-soft)]"
                 >
                   <Image
                     src={src}
@@ -97,6 +111,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"
+                    loading="lazy"
                   />
                 </li>
               ))}

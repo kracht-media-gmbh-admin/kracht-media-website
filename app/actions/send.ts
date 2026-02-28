@@ -1,10 +1,8 @@
 "use server";
 
-/**
- * Server Action: Kontaktformular (Resend-ready).
- * Für Produktion: npm install resend, RESEND_API_KEY setzen,
- * dann resend.emails.send({ from, to, subject, react: <Template /> }) aufrufen.
- */
+import { Resend } from "resend";
+
+const TO_EMAIL = "admin@kracht.at";
 
 export type SendState = {
   success: boolean;
@@ -15,25 +13,52 @@ export async function send(
   _prevState: SendState | null,
   formData: FormData
 ): Promise<SendState> {
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const message = formData.get("message");
+  const nameStr = String(formData.get("name") ?? "").trim();
+  const emailStr = String(formData.get("email") ?? "").trim();
+  const messageStr = String(formData.get("message") ?? "").trim();
 
-  if (!name || !email || !message) {
+  if (!nameStr || !emailStr || !messageStr) {
     return { success: false, message: "Bitte füllen Sie alle Felder aus." };
   }
 
-  // Stub. Resend-Integration z. B.:
-  // const resend = new Resend(process.env.RESEND_API_KEY);
-  // await resend.emails.send({ from: '...', to: '...', subject: 'Kontakt Kracht Media', ... });
-  console.log("[send stub]", {
-    name,
-    email,
-    message: String(message).slice(0, 80),
-  });
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("[send] RESEND_API_KEY is not set");
+    return {
+      success: false,
+      message: "E-Mail-Versand ist derzeit nicht konfiguriert. Bitte versuchen Sie es später oder schreiben Sie uns direkt an office@kracht.at.",
+    };
+  }
 
-  return {
-    success: true,
-    message: "Vielen Dank. Wir melden uns in Kürze bei Ihnen.",
-  };
+  const from = process.env.RESEND_FROM ?? "Kracht Media <onboarding@resend.dev>";
+  const resend = new Resend(apiKey);
+
+  try {
+    const { error } = await resend.emails.send({
+      from,
+      to: TO_EMAIL,
+      replyTo: emailStr,
+      subject: `Kontaktanfrage von ${nameStr}`,
+      text: [`Name: ${nameStr}`, `E-Mail: ${emailStr}`, "", "Nachricht:", messageStr].join("\n"),
+    });
+
+    if (error) {
+      console.error("[send] Resend error:", error);
+      return {
+        success: false,
+        message: "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später oder schreiben Sie uns direkt an office@kracht.at.",
+      };
+    }
+
+    return {
+      success: true,
+      message: "Vielen Dank. Wir melden uns in Kürze bei Ihnen.",
+    };
+  } catch (err) {
+    console.error("[send] Unexpected error:", err);
+    return {
+      success: false,
+      message: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später oder schreiben Sie uns direkt an office@kracht.at.",
+    };
+  }
 }

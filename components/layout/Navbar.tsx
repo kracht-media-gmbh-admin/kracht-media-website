@@ -11,7 +11,7 @@ const navLinks = [
 export function Navbar() {
   return (
     <header
-      className="sticky top-0 z-50 border-b border-kracht-gruen/10 bg-baby-powder/95 backdrop-blur-sm"
+      className="sticky top-0 z-50 border-b border-kracht-gruen/8 bg-baby-powder/98 backdrop-blur-md"
       role="banner"
     >
       <nav
@@ -21,19 +21,20 @@ export function Navbar() {
         <Link
           href="/"
           className={cn(
-            "text-base font-semibold tracking-tight text-kracht-gruen sm:text-lg",
+            "text-base font-bold tracking-tight text-kracht-gruen sm:text-lg",
+            "transition hover:text-orange-web",
             "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
           )}
         >
           Kracht Media
         </Link>
-        <ul className="flex items-center gap-4 sm:gap-6 lg:gap-8">
+        <ul className="flex items-center gap-6 sm:gap-8">
           {navLinks.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
                 className={cn(
-                  "text-sm font-medium text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
+                  "text-sm font-medium text-kracht-gruen/75 hover:text-kracht-gruen transition-colors duration-200",
                   "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
                 )}
               >

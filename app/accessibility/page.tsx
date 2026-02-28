@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Barrierefreiheit",
-  description: "Barrierefreiheit und Zugänglichkeit dieser Website – Kracht Media",
-};
+  description: "Barrierefreiheit und Zugänglichkeit dieser Website – Kracht Media. Unser Einsatz für zugängliche Inhalte.",
+  path: "/accessibility",
+});
 
 export default function AccessibilityPage() {
   return (
     <main className="min-h-screen bg-baby-powder">
-      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <h1
-          className="text-3xl font-bold leading-[1.1] text-kracht-gruen"
-          style={{ marginBottom: "1.5rem" }}
+          className="text-4xl font-bold leading-[1.1] tracking-tight text-kracht-gruen"
+          style={{ marginBottom: "2rem" }}
         >
           Barrierefreiheit
         </h1>

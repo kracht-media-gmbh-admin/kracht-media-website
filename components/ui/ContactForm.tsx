@@ -9,10 +9,13 @@ const initialState = null;
 export function ContactForm({ className }: { className?: string }) {
   const [state, formAction, isPending] = useActionState(send, initialState);
 
+  const inputClass =
+    "mt-2 w-full rounded-xl border border-kracht-gruen/15 bg-baby-powder px-4 py-3 text-base text-kracht-gruen placeholder-kracht-gruen/40 transition focus:border-orange-web focus:outline-none focus:ring-2 focus:ring-orange-web/20";
+
   return (
     <form
       action={formAction}
-      className={cn("flex flex-col gap-4", className)}
+      className={cn("flex flex-col gap-5", className)}
       aria-describedby={state?.message ? "form-status" : undefined}
     >
       <div>
@@ -29,7 +32,7 @@ export function ContactForm({ className }: { className?: string }) {
           required
           autoComplete="name"
           disabled={isPending}
-          className="mt-1.5 w-full rounded-md border border-kracht-gruen/20 bg-baby-powder px-3 py-2.5 text-base text-kracht-gruen placeholder-kracht-gruen/50 focus:border-orange-web focus:outline-none focus:ring-1 focus:ring-orange-web"
+          className={inputClass}
         />
       </div>
       <div>
@@ -46,7 +49,7 @@ export function ContactForm({ className }: { className?: string }) {
           required
           autoComplete="email"
           disabled={isPending}
-          className="mt-1.5 w-full rounded-md border border-kracht-gruen/20 bg-baby-powder px-3 py-2.5 text-base text-kracht-gruen placeholder-kracht-gruen/50 focus:border-orange-web focus:outline-none focus:ring-1 focus:ring-orange-web"
+          className={inputClass}
         />
       </div>
       <div>
@@ -62,7 +65,7 @@ export function ContactForm({ className }: { className?: string }) {
           rows={4}
           required
           disabled={isPending}
-          className="mt-1.5 w-full rounded-md border border-kracht-gruen/20 bg-baby-powder px-3 py-2.5 text-base leading-[1.45] text-kracht-gruen placeholder-kracht-gruen/50 focus:border-orange-web focus:outline-none focus:ring-1 focus:ring-orange-web"
+          className={cn(inputClass, "resize-y min-h-[120px]")}
         />
       </div>
       {state?.message && (
@@ -80,7 +83,10 @@ export function ContactForm({ className }: { className?: string }) {
       <button
         type="submit"
         disabled={isPending}
-        className="mt-1 rounded-md bg-orange-web px-5 py-2.5 text-base font-semibold text-kracht-gruen transition hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder disabled:opacity-50"
+        className={cn(
+          "mt-1 rounded-xl bg-orange-web px-6 py-3.5 text-base font-semibold text-kracht-gruen transition duration-200",
+          "hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder disabled:opacity-60"
+        )}
       >
         {isPending ? "Wird gesendet …" : "Nachricht senden"}
       </button>

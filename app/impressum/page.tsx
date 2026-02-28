@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
 import { COMPANY_INFO } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Impressum",
-  description: "Impressum und Angaben gemäß § 5 ECG – Kracht Media",
-};
+  description: "Impressum und Angaben gemäß § 5 ECG – Kracht Media GmbH, Walpersbach.",
+  path: "/impressum",
+});
 
 export default function ImpressumPage() {
   const { name, address, phone, email } = COMPANY_INFO;
 
   return (
     <main className="min-h-screen bg-baby-powder">
-      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <h1
-          className="text-3xl font-bold leading-[1.1] text-kracht-gruen"
-          style={{ marginBottom: "1.5rem" }}
+          className="text-4xl font-bold leading-[1.1] tracking-tight text-kracht-gruen"
+          style={{ marginBottom: "2rem" }}
         >
           Impressum
         </h1>

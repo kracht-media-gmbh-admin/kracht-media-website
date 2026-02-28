@@ -14,19 +14,22 @@ Erstelle im Projektroot eine Datei `.env.local` (wird von Git ignoriert) und tra
 # Öffentliche URL der Live-Website (für Sitemap, Robots, OG-URLs)
 NEXT_PUBLIC_SITE_URL=https://krachtmedia.com
 
-# Resend: API-Key für das Kontaktformular (siehe Abschnitt 3)
+# Resend: API-Key für das Kontaktformular (sendet an office@kracht.at; siehe Abschnitt 3)
 RESEND_API_KEY=re_xxxxxxxxxxxx
+# Optional: Absender nach Domain-Verifizierung, z. B. Kracht Media <kontakt@kracht.at>
+# RESEND_FROM=
 ```
 
 - **NEXT_PUBLIC_SITE_URL**: Exakt die URL, unter der die Seite erreichbar ist (ohne trailing slash). Wird für `metadataBase`, Sitemap, `robots.txt` und Open-Graph-URLs genutzt. Ohne Setzen wird `https://krachtmedia.com` als Fallback verwendet.
-- **RESEND_API_KEY**: Erst relevant, wenn du Resend für E-Mails aktivierst (Abschnitt 3).
+- **RESEND_API_KEY**: Erforderlich, damit das Kontaktformular E-Mails an office@kracht.at sendet (Abschnitt 3).
+- **RESEND_FROM** (optional): Eigene Absender-Adresse nach Domain-Verifizierung bei Resend; sonst wird der Test-Absender genutzt.
 
 ### 1.2 Vercel (Produktion)
 
 Unter **Vercel → Projekt → Settings → Environment Variables** dieselben Variablen anlegen:
 
 - `NEXT_PUBLIC_SITE_URL` = deine finale Domain (z. B. `https://krachtmedia.com`)
-- `RESEND_API_KEY` = dein Resend API Key (wenn Kontaktformular per Resend läuft)
+- `RESEND_API_KEY` = dein Resend API Key (Kontaktformular sendet an office@kracht.at); optional `RESEND_FROM`
 
 Nach Änderungen ggf. Redeploy auslösen.
 
@@ -56,30 +59,22 @@ Nach Änderungen ggf. Redeploy auslösen.
 
 ---
 
-## 3. Kontaktformular (Resend / E-Mail-API)
+## 3. Kontaktformular (Resend → office@kracht.at)
 
-Aktuell ist die Server Action **`app/actions/send.ts`** ein Stub: Sie validiert das Formular und gibt Erfolg zurück, sendet aber keine E-Mail.
+Es gibt **kein Newsletter** – nur das Kontaktformular auf der Seite **/contact**. Das Formular (Name, E-Mail, Nachricht) wird per **Resend** an **office@kracht.at** gesendet. Die Absender-E-Mail aus dem Formular wird als **Reply-To** gesetzt, damit du direkt antworten kannst.
 
 ### 3.1 Resend einrichten
 
 1. **Account**: Auf [resend.com](https://resend.com) registrieren.
-2. **Domain verifizieren**: Deine Absender-Domain (z. B. `kracht.at` oder `krachtmedia.com`) bei Resend verifizieren, damit E-Mails nicht als Spam landen.
+2. **Domain verifizieren**: Deine Absender-Domain (z. B. `kracht.at`) bei Resend verifizieren, damit E-Mails nicht als Spam landen.
 3. **API-Key**: Unter Resend Dashboard → API Keys einen neuen Key erstellen und kopieren.
-4. **Umgebungsvariable**: `RESEND_API_KEY=re_...` in `.env.local` und in Vercel eintragen.
+4. **Umgebungsvariablen** in `.env.local` und in Vercel:
+   - `RESEND_API_KEY=re_...` (erforderlich)
+   - `RESEND_FROM` (optional): Absender-Adresse, z. B. `Kracht Media <kontakt@kracht.at>`. Ohne Setzen wird `Kracht Media <onboarding@resend.dev>` genutzt (nur zum Testen; für Produktion eigene Domain nutzen).
 
-### 3.2 Code anpassen
+### 3.2 Code (bereits umgesetzt)
 
-1. Paket installieren:  
-   `npm install resend`
-2. In **`app/actions/send.ts`**:
-   - Resend importieren und mit `process.env.RESEND_API_KEY` initialisieren.
-   - Statt nur zu loggen: `resend.emails.send()` aufrufen mit:
-     - **from**: verifizierte Absender-Adresse (z. B. `Kracht Media <kontakt@kracht.at>`),
-     - **to**: Empfänger (z. B. `office@kracht.at` oder eine andere feste Adresse),
-     - **subject**: z. B. `Kontaktanfrage von [Name]`,
-     - **reply_to**: die E-Mail aus dem Formular (damit du direkt antworten kannst),
-     - **text** oder **html**: Name, E-Mail und Nachricht aus dem Formular formatieren.
-3. Fehlerbehandlung: Bei `resend.emails.send()`-Fehler `success: false` und eine verständliche Fehlermeldung zurückgeben (ohne interne Details im Frontend anzuzeigen).
+- **`app/actions/send.ts`** nutzt Resend, sendet an **office@kracht.at**, setzt Reply-To auf die E-Mail des Nutzers und gibt bei Fehlern eine verständliche Meldung zurück (inkl. Hinweis auf office@kracht.at).
 
 ### 3.3 Datenschutz
 
@@ -158,38 +153,25 @@ Wenn du GEO vorerst nicht nutzt, kannst du die Middleware so lassen – sie scha
 
 ---
 
-## 7. Footer „Bleiben Sie auf dem Laufenden“
-
-- Das E-Mail-Feld im Footer (**`components/layout/Footer.tsx`**) hat aktuell **keine Backend-Anbindung**: `handleNewsletterSubmit` leert nur das Feld.
-- **Optionen**:
-  - **Newsletter-Dienst** (z. B. Resend, Mailchimp, Cleverreach): eigene API/Server Action bauen, die E-Mail dorthin sendet oder einträgt; dann in der Datenschutzerklärung und ggf. auf der Cookies-Seite erwähnen.
-  - **Einfach lassen**: Als „Kontakt-/Interesse“-E-Mail interpretieren und per eigener Server Action (wie beim Kontaktformular) an `office@kracht.at` schicken – dann Hinweis im Datenschutz ergänzen.
-  - **Entfernen**: Wenn du keinen Newsletter anbietest, Block oder Button entfernen, um keine falschen Erwartungen zu wecken.
-
----
-
-## 8. Deployment (Vercel)
+## 7. Deployment (Vercel)
 
 | Schritt | Aktion |
 |--------|--------|
 | **Projekt verbinden** | Repo mit Vercel verbinden (GitHub/GitLab/Bitbucket). Build Command: `next build --webpack` (wie in `package.json`). |
-| **Env-Variablen** | `NEXT_PUBLIC_SITE_URL` und `RESEND_API_KEY` in Vercel setzen (siehe Abschnitt 1.2). |
+| **Env-Variablen** | `NEXT_PUBLIC_SITE_URL` und `RESEND_API_KEY` (optional `RESEND_FROM`) in Vercel setzen (siehe Abschnitt 1.2). |
 | **Domain** | Eigene Domain (z. B. krachtmedia.com) in Vercel unter Domains hinzufügen und DNS wie angegeben konfigurieren (A/CNAME). |
 | **HTTPS** | Von Vercel automatisch; nach Domain-Einrichtung prüfen, dass nur HTTPS verwendet wird (Redirect einstellbar). |
 
 ---
 
-## 9. Kurz-Check vor Go-Live
+## 8. Kurz-Check vor Go-Live
 
 - [ ] `.env.local` / Vercel: `NEXT_PUBLIC_SITE_URL` = finale Domain
-- [ ] Resend: Account, Domain, API-Key; `send.ts` angepasst; `RESEND_API_KEY` gesetzt
+- [ ] Resend: Account, Domain verifiziert, `RESEND_API_KEY` gesetzt; optional `RESEND_FROM` für eigenen Absender
 - [ ] `public/og-default.png` (1200×630) vorhanden
 - [ ] Impressum: Vertretungsberechtigte und Register/UID ausgefüllt
-- [ ] Datenschutz: Hosting (und ggf. Resend) genannt, Stand/Inhalt geprüft
+- [ ] Datenschutz: Hosting und Resend genannt, Stand/Inhalt geprüft
 - [ ] `lib/data.ts`: echte Projekte, Team-Bild und -Text, ggf. eigene Bilder/Video-URLs
 - [ ] Hero-Bild und Favicon/App-Icon ersetzt
-- [ ] Footer: Newsletter entweder angebunden oder entfernt/klar kommuniziert
 - [ ] Google Search Console: Sitemap eingetragen
-- [ ] Einmal komplett durchklicken (Kontaktformular, alle Links, Mobilansicht)
-
-Wenn du willst, kann als Nächstes ein konkretes Code-Beispiel für die Resend-Integration in `send.ts` oder ein `.env.example` ergänzt werden.
+- [ ] Einmal komplett durchklicken (Kontaktformular auf /contact, alle Links, Mobilansicht)

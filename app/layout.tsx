@@ -10,6 +10,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = defaultMetadata;
@@ -24,8 +25,16 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} min-h-screen antialiased flex flex-col bg-baby-powder text-kracht-gruen font-sans`}
       >
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-orange-web focus:text-kracht-gruen focus:font-semibold focus:rounded-md"
+        >
+          Zum Inhalt springen
+        </a>
         <Navbar />
-        <div className="flex-1">{children}</div>
+        <div id="main" className="flex-1" role="main">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>
