@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { team } from "@/lib/data";
 import { buildPageMetadata } from "@/lib/metadata";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const BLUR =
   "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDBAMBAAAAAAAAAAAAAQIDAAQRBRIhMQYTQVFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEEA/AL+napeW1nDBBcyxxRqFREcgKPQFFS7j5C4SaREmlVVYgDeeBRU2Z2J7MRQqgYn//2Q==";
@@ -25,6 +26,7 @@ export default function AboutPage() {
         </h1>
 
         {/* Mobile: vertical image (4:5) then text. Desktop: large image with text overlapping onto it. */}
+        <ScrollReveal>
         <div className="mt-14 lg:mt-20 relative">
           <div className="relative w-full aspect-[4/5] max-lg:max-h-[70vh] max-lg:mx-0 overflow-hidden rounded-card border border-[#E5E5E5] shadow-[var(--shadow-card)] max-sm:shadow-none lg:aspect-[21/9] lg:min-h-[420px]">
             <Image
@@ -54,6 +56,7 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </main>
   );

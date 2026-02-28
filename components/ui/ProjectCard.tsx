@@ -30,7 +30,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
           alt={project.title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition duration-500 ease-out group-hover:scale-105"
+          className="object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
           placeholder="blur"
           blurDataURL={blurDataUrl}
         />

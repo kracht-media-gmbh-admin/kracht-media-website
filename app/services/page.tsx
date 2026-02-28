@@ -3,6 +3,7 @@ import Link from "next/link";
 import { serviceCategories } from "@/lib/services";
 import { buildPageMetadata } from "@/lib/metadata";
 import { ServicesGrid } from "@/components/services/ServicesGrid";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Leistungen",
@@ -36,19 +37,22 @@ export default function ServicesPage() {
       </section>
 
       {/* Three distinct blocks: Events, Design, IT-Service */}
-      <section
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28"
-        aria-label="Leistungsbereiche"
-      >
-        <ServicesGrid categories={serviceCategories} />
-      </section>
+      <ScrollReveal>
+        <section
+          className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28"
+          aria-label="Leistungsbereiche"
+        >
+          <ServicesGrid categories={serviceCategories} />
+        </section>
+      </ScrollReveal>
 
       {/* CTA */}
-      <section
-        className="mx-auto max-w-6xl px-4 pt-20 pb-24 sm:px-6 sm:pt-28 sm:pb-28 lg:px-8 lg:pt-32 lg:pb-32"
-        aria-labelledby="cta-heading"
-      >
-        <div className="rounded-card border border-[#E5E5E5] bg-kracht-gruen/5 py-12 px-8 text-center sm:py-16 sm:px-12 max-sm:shadow-none shadow-[var(--shadow-card)]">
+      <ScrollReveal>
+        <section
+          className="mx-auto max-w-6xl px-4 pt-20 pb-24 sm:px-6 sm:pt-28 sm:pb-28 lg:px-8 lg:pt-32 lg:pb-32"
+          aria-labelledby="cta-heading"
+        >
+          <div className="rounded-card border border-[#E5E5E5] bg-kracht-gruen/5 py-12 px-8 text-center sm:py-16 sm:px-12 max-sm:shadow-none shadow-[var(--shadow-card)]">
           <h2
             id="cta-heading"
             className="text-2xl font-bold leading-[1.1] text-kracht-gruen sm:text-3xl"
@@ -71,7 +75,8 @@ export default function ServicesPage() {
             <span aria-hidden className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
           </Link>
         </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </main>
   );
 }

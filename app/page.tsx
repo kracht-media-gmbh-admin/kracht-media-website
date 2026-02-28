@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTopProjects } from "@/lib/data";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { LocalBusinessJsonLd } from "@/components/seo/LocalBusinessJsonLd";
 
 const HERO_IMAGE = "https://picsum.photos/seed/kracht-hero/1600/900";
@@ -82,50 +83,54 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
-        aria-labelledby="projekte-heading"
-      >
-        <h2
-          id="projekte-heading"
-          className="animate-in animate-in-3 text-2xl font-semibold leading-[1.1] tracking-tight text-kracht-gruen sm:text-3xl"
-          style={{ marginBottom: "2rem" }}
+      <ScrollReveal>
+        <section
+          className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
+          aria-labelledby="projekte-heading"
         >
-          Ausgewählte Projekte
-        </h2>
-        <ul className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
-          {topProjects.map((project, i) => (
-            <li key={project.id} className={`animate-in animate-in-${4 + i}`}>
-              <ProjectCard project={project} />
-            </li>
-          ))}
-        </ul>
-        <p className="mt-14 text-center animate-in animate-in-6">
-          <Link
-            href="/projects"
-            className="group link-accent inline-flex items-center gap-2 font-semibold text-orange-web transition-[gap,color] duration-200 hover:gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
+          <h2
+            id="projekte-heading"
+            className="text-2xl font-semibold leading-[1.1] tracking-tight text-kracht-gruen sm:text-3xl"
+            style={{ marginBottom: "2rem" }}
           >
-            Alle Projekte ansehen
-            <span aria-hidden className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-          </Link>
-        </p>
-      </section>
+            Ausgewählte Projekte
+          </h2>
+          <ul className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
+            {topProjects.map((project) => (
+              <li key={project.id}>
+                <ProjectCard project={project} />
+              </li>
+            ))}
+          </ul>
+          <p className="mt-14 text-center">
+            <Link
+              href="/projects"
+              className="group link-accent inline-flex items-center gap-2 font-semibold text-orange-web transition-[gap,color] duration-200 hover:gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
+            >
+              Alle Projekte ansehen
+              <span aria-hidden className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+            </Link>
+          </p>
+        </section>
+      </ScrollReveal>
 
       {/* Statement */}
-      <section
-        className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32"
-        aria-labelledby="message-heading"
-      >
-        <h2 id="message-heading" className="sr-only">
-          Unser Anspruch
-        </h2>
-        <blockquote className="relative border-l-4 border-orange-web bg-kracht-gruen/5 py-8 pl-8 pr-8 sm:pl-12 sm:pr-12 rounded-r-2xl">
-          <p className="text-xl font-semibold leading-[1.25] text-kracht-gruen sm:text-2xl md:text-3xl lg:max-w-4xl">
-            Wir machen keine leisen Kompromisse. Jedes Projekt bekommt die
-            gleiche Präzision – ob Spot oder Serie.
-          </p>
-        </blockquote>
-      </section>
+      <ScrollReveal>
+        <section
+          className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32"
+          aria-labelledby="message-heading"
+        >
+          <h2 id="message-heading" className="sr-only">
+            Unser Anspruch
+          </h2>
+          <blockquote className="relative border-l-4 border-orange-web bg-kracht-gruen/5 py-8 pl-8 pr-8 sm:pl-12 sm:pr-12 rounded-r-2xl">
+            <p className="text-xl font-semibold leading-[1.25] text-kracht-gruen sm:text-2xl md:text-3xl lg:max-w-4xl">
+              Wir machen keine leisen Kompromisse. Jedes Projekt bekommt die
+              gleiche Präzision – ob Spot oder Serie.
+            </p>
+          </blockquote>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }

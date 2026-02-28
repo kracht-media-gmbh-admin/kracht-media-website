@@ -126,6 +126,28 @@ body::before {
   }
 }
 
+/* Scroll reveal: fade-in + slide-up when section enters viewport (IO in client component) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-reveal.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .scroll-reveal.scroll-reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Focus visible for keyboard nav (SEO/a11y) */
 :focus-visible {
   outline: 2px solid #ff9f1c;
