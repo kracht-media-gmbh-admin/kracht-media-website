@@ -3,8 +3,6 @@
  * Projekte: slug, title, previewImg, detailText + Felder für Detailseite.
  */
 
-const PLACEHOLDER = "https://picsum.photos";
-
 export interface Project {
   id: string;
   slug: string;
@@ -22,65 +20,67 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "1",
-    slug: "brand-campaign-alpha",
-    title: "Brand Campaign Alpha",
+    id: "borgall_wiener_neustadt_2024",
+    slug: "borgall_wiener_neustadt_2024",
+    title: "Borgball",
     description:
-      "Eine durchdachte Markenkampagne mit klarer Erzählung und starkem visuellen Auftritt.",
+      "Eleganter Schulball mit spektakulärer Eröffnung und unvergesslicher Atmosphäre.",
     detailText:
-      "Von der Idee bis zum Schnitt: präzise und kraftvoll. Diese Kampagne verbindet cineastische Erzählung mit einer unverwechselbaren Markensprache. Wir haben jeden Frame auf Klarheit und Wirkung getrimmt – reduziert, aber laut.",
-    previewImg: `${PLACEHOLDER}/seed/alpha/1200/630`,
-    coverImage: `${PLACEHOLDER}/seed/alpha/1200/630`,
-    videoUrl: "/videos/alpha-showreel.mp4",
-    gallery: [
-      `${PLACEHOLDER}/seed/alpha1/800/600`,
-      `${PLACEHOLDER}/seed/alpha2/800/600`,
-      `${PLACEHOLDER}/seed/alpha3/800/600`,
-    ],
-    category: "Commercial",
+      "Ein unvergesslicher Abend voller Eleganz und Musik. Der Borgball 2024 setzte neue Maßstäbe in Sachen Unterhaltung.\n\nDas jährliche Highlight der Schulszene in Wiener Neustadt fand auch dieses Jahr wieder statt. Mit aufwendiger Dekoration, einer spektakulären Eröffnung und zahlreichen Einlagen wurde bis in die frühen Morgenstunden gefeiert. Unser Team war vor Ort, um die besten Momente festzuhalten.",
+    previewImg: "/images/P01_Borgball_2024.webp",
+    coverImage: "/images/P01_Borgball_2024.webp",
+    videoUrl: "",
+    gallery: [],
+    category: "Wiener Neustadt",
   },
   {
-    id: "2",
-    slug: "documentary-horizon",
-    title: "Dokumentation: Horizon",
+    id: "firmen_branding_2025",
+    slug: "firmen_branding_2025",
+    title: "Firmen Branding",
     description:
-      "Dokumentarische Reihe über unberührte Landschaften und die Menschen, die dort leben.",
+      "Innovatives Corporate Design, das Professionalität und moderne Ästhetik vereint.",
     detailText:
-      "Authentisch, reduziert, mit starkem Sound. Horizon zeigt Orte und Menschen ohne Filter – Stabilität durch ehrliche Bilder und eine klare Erzählstruktur. Gedreht vor Ort, mit Fokus auf Tiefe statt Effekte.",
-    previewImg: `${PLACEHOLDER}/seed/horizon/1200/630`,
-    coverImage: `${PLACEHOLDER}/seed/horizon/1200/630`,
-    videoUrl: "/videos/horizon-teaser.mp4",
-    gallery: [
-      `${PLACEHOLDER}/seed/horizon1/800/600`,
-      `${PLACEHOLDER}/seed/horizon2/800/600`,
-      `${PLACEHOLDER}/seed/horizon3/800/600`,
-      `${PLACEHOLDER}/seed/horizon4/800/600`,
-    ],
-    category: "Dokumentation",
+      "Modernes Design trifft auf klare Linien. Das neue Branding für Hoffeld verkörpert Innovation.\n\nFür Hoffeld Design haben wir ein komplett neues visuelles Konzept entwickelt. Vom Logo über die Geschäftspapiere bis hin zur digitalen Präsenz wurde alles aus einem Guss gestaltet. Ziel war es, die Professionalität und Kreativität des Unternehmens widerzuspiegeln.",
+    previewImg: "/images/P03_Design_2025.webp",
+    coverImage: "/images/P03_Design_2025.webp",
+    videoUrl: "",
+    gallery: [],
+    category: "Hoffeld Design",
   },
   {
-    id: "3",
-    slug: "digital-experience-nova",
-    title: "Digital Experience: Nova",
+    id: "werbespot_wiener_neustadt_2025",
+    slug: "werbespot_wiener_neustadt_2025",
+    title: "Werbespot",
     description:
-      "Interaktives Erlebnis aus Film, 3D und nutzergeführtem Erzählen.",
+      "Dynamischer Werbespot, der die urbanen Facetten Wiener Neustadts emotional einfängt.",
     detailText:
-      "Schnell, klar, auf allen Geräten einsatzbereit. Nova verbindet Bewegtbild mit interaktiven Elementen – ohne Schnickschnack, mit maximaler Wirkung. Reduzierte Kraft: jede Interaktion hat einen Zweck.",
-    previewImg: `${PLACEHOLDER}/seed/nova/1200/630`,
-    coverImage: `${PLACEHOLDER}/seed/nova/1200/630`,
-    videoUrl: "/videos/nova-demo.mp4",
-    gallery: [
-      `${PLACEHOLDER}/seed/nova1/800/600`,
-      `${PLACEHOLDER}/seed/nova2/800/600`,
-    ],
-    category: "Digital",
+      "Wiener Neustadt in neuem Licht. Ein Werbespot, der die Vielfalt der Stadt zeigt.\n\nDieser Werbespot wurde konzipiert, um Besucher und Bewohner gleichermaßen anzusprechen. Durch dynamische Schnitte und emotionale Bilder wird die Stadt als lebendiger Ort der Begegnung präsentiert.",
+    previewImg: "/images/P04_Werbung_WN_2025.webp",
+    coverImage: "/images/P04_Werbung_WN_2025.webp",
+    videoUrl: "",
+    gallery: [],
+    category: "Stadt Wiener Neustadt",
+  },
+  {
+    id: "gemeindezeitung_bad_erlach_2025",
+    slug: "gemeindezeitung_bad_erlach_2025",
+    title: "Gemeindezeitung",
+    description:
+      "Modernes Redaktionsdesign für eine bürgernahe und visuell ansprechende Kommunikation.",
+    detailText:
+      "Information nah am Bürger. Die Neugestaltung der Gemeindezeitung Bad Erlach.\n\nEine Zeitung, die man gerne liest. Mit dem neuen Layout wurde die Lesbarkeit verbessert und mehr Raum für Bilder geschaffen. Das Feedback der Bürger war überwältigend positiv.",
+    previewImg: "/images/P05_Zeitung_2025.webp",
+    coverImage: "/images/P05_Zeitung_2025.webp",
+    videoUrl: "",
+    gallery: [],
+    category: "Bad Erlach",
   },
 ];
 
 export interface Team {
   name: string;
   description: string;
-  /** Platzhalter-URL für Teamfoto */
+  /** Teamfoto für Über-uns-Seite */
   image: string;
 }
 
@@ -88,7 +88,7 @@ export const team: Team = {
   name: "Kracht Media",
   description:
     "Wir sind ein Team aus Machern, die an klare Botschaften und reduzierten Ausdruck glauben. Lauter als jeder Presslufthammer – nicht durch Lärm, sondern durch Präzision. Stabilität im Konzept, Kraft in der Umsetzung. Ob Film, Design oder digitale Erlebnisse: Wir setzen auf das Wesentliche.",
-  image: `${PLACEHOLDER}/seed/team/800/600`,
+  image: "/images/team/kracht-team.webp",
 };
 
 export function getProjectBySlug(slug: string): Project | undefined {
