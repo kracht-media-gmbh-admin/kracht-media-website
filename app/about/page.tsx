@@ -25,9 +25,9 @@ export default function AboutPage() {
           Über uns
         </h1>
 
-        {/* Mobile: vertical image (4:5) then text. Desktop: large image with text overlapping onto it. */}
+        {/* Image first, then all text below. */}
         <ScrollReveal>
-        <div className="mt-14 lg:mt-20 relative">
+        <div className="mt-14 lg:mt-20">
           <div className="relative w-full aspect-[4/5] max-lg:max-h-[70vh] max-lg:mx-0 overflow-hidden rounded-card border border-[#E5E5E5] shadow-[var(--shadow-card)] max-sm:shadow-none lg:aspect-[21/9] lg:min-h-[420px]">
             <Image
               src={team.image}
@@ -39,9 +39,7 @@ export default function AboutPage() {
               blurDataURL={BLUR}
             />
           </div>
-          <div
-            className="mt-8 lg:mt-0 lg:absolute lg:right-0 lg:bottom-0 lg:max-w-md lg:-translate-y-12 lg:translate-x-4 z-10 rounded-card border border-[#E5E5E5] bg-baby-powder/98 shadow-[var(--shadow-card)] p-6 sm:p-8 lg:p-8"
-          >
+          <div className="mt-8 max-w-2xl">
             <h2
               className="text-2xl font-semibold leading-[1.15] text-kracht-gruen"
               style={{ marginBottom: "1.25rem" }}

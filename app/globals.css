@@ -56,9 +56,9 @@
 .dark .border-kracht-gruen\/20 { border-color: rgba(255, 254, 250, 0.2); }
 .dark .placeholder-kracht-gruen\/40::placeholder { color: rgba(255, 254, 250, 0.4); }
 
+/* Only body gets overflow-x: hidden to avoid scroll-containment bugs (first scroll "stuck") on some mobile browsers */
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 
@@ -81,13 +81,13 @@ body {
   overflow-wrap: break-word;
 }
 
-/* Subtle paper texture overlay (light grain) */
+/* Subtle paper texture overlay (light grain) – behind all UI so nav/content always paint on top */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 0;
   opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
