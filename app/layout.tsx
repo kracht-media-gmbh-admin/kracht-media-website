@@ -3,8 +3,10 @@ import { Montserrat } from "next/font/google";
 import { defaultMetadata } from "@/lib/metadata";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ExternalScripts } from "@/components/analytics/ExternalScripts";
 import "./globals.css";
 
+// next/font: automatisches Self-Hosting, kein externer Font-Request, display: swap verhindert FOIT
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
@@ -36,6 +38,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <ExternalScripts />
       </body>
     </html>
   );

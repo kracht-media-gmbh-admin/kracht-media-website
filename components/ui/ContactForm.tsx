@@ -72,8 +72,9 @@ export function ContactForm({ className }: { className?: string }) {
         <p
           id="form-status"
           role="status"
+          aria-live="polite"
           className={cn(
-            "text-sm",
+            "text-sm font-medium",
             state.success ? "text-kracht-gruen" : "text-orange-web"
           )}
         >

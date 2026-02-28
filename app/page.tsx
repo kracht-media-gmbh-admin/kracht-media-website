@@ -102,10 +102,10 @@ export default function Home() {
         className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32"
         aria-labelledby="message-heading"
       >
-        <blockquote
-          id="message-heading"
-          className="relative border-l-4 border-orange-web bg-kracht-gruen/5 py-8 pl-8 pr-8 sm:pl-12 sm:pr-12 rounded-r-2xl"
-        >
+        <h2 id="message-heading" className="sr-only">
+          Unser Anspruch
+        </h2>
+        <blockquote className="relative border-l-4 border-orange-web bg-kracht-gruen/5 py-8 pl-8 pr-8 sm:pl-12 sm:pr-12 rounded-r-2xl">
           <p className="text-xl font-semibold leading-[1.25] text-kracht-gruen sm:text-2xl md:text-3xl lg:max-w-4xl">
             Wir machen keine leisen Kompromisse. Jedes Projekt bekommt die
             gleiche Präzision – ob Spot oder Serie.

@@ -27,7 +27,10 @@ export default function ProjectsPage() {
           Ein Überblick über unsere Arbeiten: von Markenkampagnen über
           Dokumentationen bis zu digitalen Erlebnissen.
         </p>
-        <ul className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
+        <h2 id="projektliste-heading" className="sr-only">
+          Projektübersicht
+        </h2>
+        <ul className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3" aria-labelledby="projektliste-heading">
           {projects.map((project) => (
             <li key={project.id}>
               <ProjectCard project={project} />

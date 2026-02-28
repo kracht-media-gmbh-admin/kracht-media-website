@@ -42,9 +42,9 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-kracht-gruen/60">
           {project.category}
         </span>
-        <h2 className="mt-2 text-xl font-semibold leading-[1.15] text-kracht-gruen transition-colors duration-200 group-hover:text-orange-web">
+        <h3 className="mt-2 text-xl font-semibold leading-[1.15] text-kracht-gruen transition-colors duration-200 group-hover:text-orange-web">
           {project.title}
-        </h2>
+        </h3>
         <p className="mt-2 line-clamp-2 text-sm leading-[1.5] text-kracht-gruen/75">
           {project.description}
         </p>

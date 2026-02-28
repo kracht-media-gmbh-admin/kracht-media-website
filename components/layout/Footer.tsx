@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { COMPANY_INFO, LEGAL_ROUTES } from "@/lib/site";
