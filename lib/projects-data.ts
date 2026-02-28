@@ -9,7 +9,6 @@ export interface Project {
   category: string;
 }
 
-// Placeholder images (picsum.photos). Replace with your own paths or uploads.
 const PLACEHOLDER = "https://picsum.photos";
 
 export const projects: Project[] = [
@@ -18,7 +17,7 @@ export const projects: Project[] = [
     slug: "brand-campaign-alpha",
     title: "Brand Campaign Alpha",
     description:
-      "A full-scale brand campaign blending cinematic storytelling with bold visual identity. From concept to final cut, we delivered a narrative that resonated across digital and broadcast.",
+      "Eine durchdachte Markenkampagne mit klarer Erzählung und starkem visuellen Auftritt. Von der Idee bis zum Schnitt: präzise und kraftvoll.",
     coverImage: `${PLACEHOLDER}/seed/alpha/1200/630`,
     videoUrl: "/videos/alpha-showreel.mp4",
     gallery: [
@@ -31,9 +30,9 @@ export const projects: Project[] = [
   {
     id: "2",
     slug: "documentary-horizon",
-    title: "Documentary: Horizon",
+    title: "Dokumentation: Horizon",
     description:
-      "Documentary series exploring uncharted landscapes and the people who call them home. Shot on location with a focus on authenticity and immersive sound design.",
+      "Dokumentarische Reihe über unberührte Landschaften und die Menschen, die dort leben. Authentisch, reduziert, mit starkem Sound.",
     coverImage: `${PLACEHOLDER}/seed/horizon/1200/630`,
     videoUrl: "/videos/horizon-teaser.mp4",
     gallery: [
@@ -42,14 +41,14 @@ export const projects: Project[] = [
       `${PLACEHOLDER}/seed/horizon3/800/600`,
       `${PLACEHOLDER}/seed/horizon4/800/600`,
     ],
-    category: "Documentary",
+    category: "Dokumentation",
   },
   {
     id: "3",
     slug: "digital-experience-nova",
     title: "Digital Experience: Nova",
     description:
-      "An interactive digital experience merging video, 3D elements, and user-driven narrative. Built for performance and engagement on all devices.",
+      "Interaktives Erlebnis aus Film, 3D und nutzergeführtem Erzählen. Schnell, klar, auf allen Geräten einsatzbereit.",
     coverImage: `${PLACEHOLDER}/seed/nova/1200/630`,
     videoUrl: "/videos/nova-demo.mp4",
     gallery: [

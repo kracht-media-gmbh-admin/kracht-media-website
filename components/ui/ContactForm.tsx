@@ -16,7 +16,10 @@ export function ContactForm({ className }: { className?: string }) {
       aria-describedby={state?.message ? "form-status" : undefined}
     >
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label
+          htmlFor="name"
+          className="block text-sm font-semibold text-kracht-gruen"
+        >
           Name
         </label>
         <input
@@ -26,12 +29,15 @@ export function ContactForm({ className }: { className?: string }) {
           required
           autoComplete="name"
           disabled={isPending}
-          className="mt-1 w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-500 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder-zinc-400"
+          className="mt-1.5 w-full rounded-md border border-kracht-gruen/20 bg-baby-powder px-3 py-2.5 text-base text-kracht-gruen placeholder-kracht-gruen/50 focus:border-orange-web focus:outline-none focus:ring-1 focus:ring-orange-web"
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
-          Email
+        <label
+          htmlFor="email"
+          className="block text-sm font-semibold text-kracht-gruen"
+        >
+          E-Mail
         </label>
         <input
           id="email"
@@ -40,12 +46,15 @@ export function ContactForm({ className }: { className?: string }) {
           required
           autoComplete="email"
           disabled={isPending}
-          className="mt-1 w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-500 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder-zinc-400"
+          className="mt-1.5 w-full rounded-md border border-kracht-gruen/20 bg-baby-powder px-3 py-2.5 text-base text-kracht-gruen placeholder-kracht-gruen/50 focus:border-orange-web focus:outline-none focus:ring-1 focus:ring-orange-web"
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
-          Message
+        <label
+          htmlFor="message"
+          className="block text-sm font-semibold text-kracht-gruen"
+        >
+          Nachricht
         </label>
         <textarea
           id="message"
@@ -53,7 +62,7 @@ export function ContactForm({ className }: { className?: string }) {
           rows={4}
           required
           disabled={isPending}
-          className="mt-1 w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-500 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder-zinc-400"
+          className="mt-1.5 w-full rounded-md border border-kracht-gruen/20 bg-baby-powder px-3 py-2.5 text-base leading-[1.45] text-kracht-gruen placeholder-kracht-gruen/50 focus:border-orange-web focus:outline-none focus:ring-1 focus:ring-orange-web"
         />
       </div>
       {state?.message && (
@@ -62,9 +71,7 @@ export function ContactForm({ className }: { className?: string }) {
           role="status"
           className={cn(
             "text-sm",
-            state.success
-              ? "text-green-600 dark:text-green-400"
-              : "text-red-600 dark:text-red-400"
+            state.success ? "text-kracht-gruen" : "text-orange-web"
           )}
         >
           {state.message}
@@ -73,9 +80,9 @@ export function ContactForm({ className }: { className?: string }) {
       <button
         type="submit"
         disabled={isPending}
-        className="rounded-md bg-zinc-900 px-4 py-2 font-medium text-white transition hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+        className="mt-1 rounded-md bg-orange-web px-5 py-2.5 text-base font-semibold text-kracht-gruen transition hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder disabled:opacity-50"
       >
-        {isPending ? "Sending…" : "Send message"}
+        {isPending ? "Wird gesendet …" : "Nachricht senden"}
       </button>
     </form>
   );

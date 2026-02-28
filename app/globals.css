@@ -1,26 +1,33 @@
 @import "tailwindcss";
 
+/* ——— Kracht Media 2025 Brand Theme ——— */
+/* Colors: KRACHT GRÜN (primary), BABY POWDER (backgrounds only), ORANGE WEB (CTAs) */
+@theme {
+  --color-kracht-gruen: #1c3628;
+  --color-baby-powder: #fffefa;
+  --color-orange-web: #ff9f1c;
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-montserrat: var(--font-montserrat), system-ui, sans-serif;
+  --leading-headline: 1.1;
+  --leading-body: 1.45;
+  --text-body: 16px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  background: var(--baby-powder);
+  color: var(--kracht-gruen);
+  font-family: var(--font-montserrat);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+/* Headline spacing: ~1.5x font-size (generous whitespace) */
+.headline-spacing {
+  margin-bottom: 0.375em;
+}
+.headline-spacing-lg {
+  margin-bottom: 0.5em;
 }

@@ -1,0 +1,21 @@
+---
+description: Kracht Media 2025 Brand Guidelines – theme, language, and UI consistency
+alwaysApply: true
+---
+
+# Kracht Media Brand (2025)
+
+Before generating or changing any UI, **always** check:
+
+- **`lib/metadata.ts`** – SEO, titles, and descriptions (must stay in German and on-brand).
+- **`tailwind.config.ts`** and **`app/globals.css`** – Theme and color tokens. Use only these colors and typography.
+
+## Rules
+
+1. **Language**: All user-facing text must be **German**. Tone: direct, clear, powerful, professional, confident.
+2. **Colors** (Tailwind): Use only `kracht-gruen` (#1C3628), `baby-powder` (#FFFEFA), `orange-web` (#FF9F1C). Green on any background; Baby Powder **only for backgrounds**.
+3. **Typography**: Montserrat (next/font/google). Headlines: Bold/SemiBold, line-height 100–110%. Body: Regular, 16px, line-height 130–150%.
+4. **Layout**: Simple, classical, high-end. Generous whitespace (headlines ~1.5× font-size spacing). Mobile-first, fully responsive. Clean geometric shapes; avoid “boxy” layouts.
+5. **CTAs / Highlights**: Use `orange-web` for buttons and accents.
+
+Keep new components and pages consistent with this theme.

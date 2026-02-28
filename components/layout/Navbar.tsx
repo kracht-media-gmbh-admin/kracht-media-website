@@ -4,37 +4,43 @@ import { cn } from "@/lib/utils";
 export function Navbar() {
   return (
     <header
-      className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/90 backdrop-blur-sm dark:border-zinc-800/80 dark:bg-zinc-950/90"
+      className="sticky top-0 z-50 border-b border-kracht-gruen/10 bg-baby-powder/95 backdrop-blur-sm"
       role="banner"
     >
       <nav
-        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6"
-        aria-label="Main"
+        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+        aria-label="Hauptnavigation"
       >
         <Link
           href="/"
           className={cn(
-            "text-lg font-semibold text-zinc-900 dark:text-zinc-100",
-            "focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 rounded"
+            "text-base font-semibold tracking-tight text-kracht-gruen sm:text-lg",
+            "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
           )}
         >
           Kracht Media
         </Link>
-        <ul className="flex items-center gap-6">
+        <ul className="flex items-center gap-6 sm:gap-8">
           <li>
             <Link
-              href="/#projects"
-              className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 rounded"
+              href="/#projekte"
+              className={cn(
+                "text-sm font-medium text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
+                "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
+              )}
             >
-              Projects
+              Projekte
             </Link>
           </li>
           <li>
             <Link
-              href="/#contact"
-              className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 rounded"
+              href="/#kontakt"
+              className={cn(
+                "text-sm font-medium text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
+                "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
+              )}
             >
-              Contact
+              Kontakt
             </Link>
           </li>
         </ul>

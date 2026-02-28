@@ -6,35 +6,35 @@ export function Footer() {
 
   return (
     <footer
-      className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950"
+      className="border-t border-kracht-gruen/10 bg-baby-powder"
       role="contentinfo"
     >
-      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            © {currentYear} Kracht Media. All rights reserved.
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+          <p className="text-sm text-kracht-gruen/80">
+            © {currentYear} Kracht Media GmbH. Alle Rechte vorbehalten.
           </p>
-          <ul className="flex gap-6">
+          <ul className="flex gap-6 sm:gap-8">
             <li>
               <Link
-                href="/#projects"
+                href="/#projekte"
                 className={cn(
-                  "text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 rounded"
+                  "text-sm text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
+                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
                 )}
               >
-                Projects
+                Projekte
               </Link>
             </li>
             <li>
               <Link
-                href="/#contact"
+                href="/#kontakt"
                 className={cn(
-                  "text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 rounded"
+                  "text-sm text-kracht-gruen/80 hover:text-kracht-gruen transition-colors",
+                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
                 )}
               >
-                Contact
+                Kontakt
               </Link>
             </li>
           </ul>
