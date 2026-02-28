@@ -4,7 +4,19 @@ import { defaultMetadata } from "@/lib/metadata";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ExternalScripts } from "@/components/analytics/ExternalScripts";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import "./globals.css";
+
+// Inline script: set dark class before first paint to avoid flash (system + localStorage)
+const themeScript = `
+(function(){
+  var k = 'kracht-media-theme';
+  var s;
+  try { s = localStorage.getItem(k); } catch (e) {}
+  var dark = s === 'dark' || (!s && typeof matchMedia !== 'undefined' && matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.classList.toggle('dark', dark);
+})();
+`;
 
 // next/font: automatisches Self-Hosting, kein externer Font-Request, display: swap verhindert FOIT
 const montserrat = Montserrat({
@@ -23,9 +35,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de">
+    <html lang="de" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
-        className={`${montserrat.variable} min-h-screen antialiased flex flex-col bg-baby-powder text-kracht-gruen font-sans`}
+        className={`${montserrat.variable} min-h-screen antialiased flex flex-col bg-baby-powder text-kracht-gruen font-sans dark:bg-[var(--bg-page)] dark:text-[var(--text-page)]`}
       >
         <a
           href="#main"
@@ -33,11 +48,13 @@ export default function RootLayout({
         >
           Zum Inhalt springen
         </a>
-        <Navbar />
-        <div id="main" className="flex-1" role="main">
-          {children}
-        </div>
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          <div id="main" className="flex-1" role="main">
+            {children}
+          </div>
+          <Footer />
+        </ThemeProvider>
         <ExternalScripts />
       </body>
     </html>

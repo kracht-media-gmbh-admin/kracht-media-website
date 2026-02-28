@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useCallback, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/components/theme/ThemeProvider";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -13,14 +14,21 @@ const navLinks = [
   { href: "/contact", label: "Kontakt" },
 ] as const;
 
-const linkBase =
-  "nav-link-hover text-sm font-medium text-kracht-gruen/75 hover:text-kracht-gruen transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded";
-
 export function Navbar() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
   const closeMenu = useCallback(() => setMobileOpen(false), []);
+
+  const linkBase = cn(
+    "nav-link-hover text-sm font-medium transition-colors duration-200 rounded",
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2",
+    isDark
+      ? "text-baby-powder/75 hover:text-baby-powder focus-visible:ring-offset-[var(--bg-page)]"
+      : "text-kracht-gruen/75 hover:text-kracht-gruen focus-visible:ring-offset-baby-powder"
+  );
 
   // Close menu on route change (e.g. after clicking a link)
   useEffect(() => {
@@ -41,7 +49,12 @@ export function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-kracht-gruen/8 bg-baby-powder/98 backdrop-blur-md"
+      className={cn(
+        "sticky top-0 z-50 border-b backdrop-blur-md",
+        isDark
+          ? "border-white/10 bg-[var(--bg-page)]/98 shadow-[0_1px_0_0_rgba(255,254,250,0.06)]"
+          : "border-kracht-gruen/12 bg-baby-powder shadow-[0_1px_0_0_rgba(28,54,40,0.06)]"
+      )}
       role="banner"
     >
       <nav
@@ -51,9 +64,9 @@ export function Navbar() {
         <Link
           href="/"
           className={cn(
-            "text-base font-bold tracking-tight text-kracht-gruen sm:text-lg",
-            "transition-colors duration-200 hover:text-orange-web",
-            "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
+            "text-base font-bold tracking-tight sm:text-lg transition-colors duration-200 hover:text-orange-web rounded",
+            "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2",
+            isDark ? "text-baby-powder focus-visible:ring-offset-[var(--bg-page)]" : "text-kracht-gruen focus-visible:ring-offset-baby-powder"
           )}
         >
           Kracht Media
@@ -75,9 +88,12 @@ export function Navbar() {
           type="button"
           onClick={() => setMobileOpen((o) => !o)}
           className={cn(
-            "flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md text-kracht-gruen",
-            "transition-colors duration-200 hover:bg-kracht-gruen/10 hover:text-orange-web active:scale-95",
-            "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder md:hidden"
+            "flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md",
+            "transition-colors duration-200 hover:text-orange-web active:scale-95",
+            "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 md:hidden",
+            isDark
+              ? "text-baby-powder hover:bg-white/10 focus-visible:ring-offset-[var(--bg-page)]"
+              : "text-kracht-gruen hover:bg-kracht-gruen/10 focus-visible:ring-offset-baby-powder"
           )}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
@@ -108,7 +124,8 @@ export function Navbar() {
       <div
         id="mobile-nav"
         className={cn(
-          "grid overflow-hidden border-t border-kracht-gruen/8 bg-baby-powder/98 transition-[grid-template-rows] duration-150 ease-out md:hidden",
+          "grid overflow-hidden border-t transition-[grid-template-rows] duration-150 ease-out md:hidden",
+          isDark ? "border-white/10 bg-[var(--bg-page)]/98" : "border-kracht-gruen/12 bg-baby-powder",
           mobileOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         )}
         aria-hidden={!mobileOpen}
@@ -121,8 +138,10 @@ export function Navbar() {
                   href={href}
                   onClick={closeMenu}
                   className={cn(
-                    "block px-4 py-3 text-base font-medium text-kracht-gruen/90 transition-colors duration-200",
-                    "hover:bg-kracht-gruen/8 hover:text-kracht-gruen",
+                    "block px-4 py-3 text-base font-medium transition-colors duration-200",
+                    isDark
+                      ? "text-baby-powder/90 hover:bg-white/10 hover:text-baby-powder"
+                      : "text-kracht-gruen/90 hover:bg-kracht-gruen/8 hover:text-kracht-gruen",
                     linkBase
                   )}
                 >

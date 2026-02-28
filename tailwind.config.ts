@@ -6,6 +6,7 @@ import type { Config } from "tailwindcss";
  * AI: Check this file and lib/metadata.ts before generating new UI.
  */
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",

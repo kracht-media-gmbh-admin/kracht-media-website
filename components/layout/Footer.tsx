@@ -2,6 +2,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { COMPANY_INFO, LEGAL_ROUTES } from "@/lib/site";
 import { FooterCtaToggle } from "./FooterCtaToggle";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -62,11 +63,14 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Bottom: KRACHT MEDIA (left) + copyright */}
+        {/* Bottom: KRACHT MEDIA (left) + copyright + dark mode toggle */}
         <div className="mt-10 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-white/10">
-          <span className="text-lg font-bold tracking-wide text-baby-powder uppercase order-2 sm:order-1">
-            KRACHT MEDIA
-          </span>
+          <div className="flex items-center gap-4 order-2 sm:order-1">
+            <span className="text-lg font-bold tracking-wide text-baby-powder uppercase">
+              KRACHT MEDIA
+            </span>
+            <ThemeToggle />
+          </div>
           <p className="text-sm text-white/60 order-1 sm:order-2">
             © {currentYear} Kracht Media GmbH. Alle Rechte vorbehalten.
           </p>

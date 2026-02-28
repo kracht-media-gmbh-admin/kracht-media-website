@@ -19,7 +19,38 @@
   --shadow-soft: 0 2px 12px rgba(28, 54, 40, 0.06);
   --shadow-card: 0 4px 24px rgba(28, 54, 40, 0.08);
   --shadow-card-hover: 0 12px 40px rgba(28, 54, 40, 0.12);
+  --bg-page: var(--baby-powder);
+  --text-page: var(--kracht-gruen);
 }
+
+.dark {
+  --bg-page: #0f1a16;
+  --text-page: var(--baby-powder);
+  --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.25);
+  --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode: make explicit kracht-gruen text/backgrounds use page colors */
+.dark .text-kracht-gruen { color: var(--baby-powder); }
+.dark .text-kracht-gruen\/75 { color: rgba(255, 254, 250, 0.75); }
+.dark .text-kracht-gruen\/80 { color: rgba(255, 254, 250, 0.8); }
+.dark .text-kracht-gruen\/85 { color: rgba(255, 254, 250, 0.85); }
+.dark .text-kracht-gruen\/90 { color: rgba(255, 254, 250, 0.9); }
+.dark .text-kracht-gruen\/70 { color: rgba(255, 254, 250, 0.7); }
+.dark .text-kracht-gruen\/60 { color: rgba(255, 254, 250, 0.6); }
+.dark .text-kracht-gruen\/40 { color: rgba(255, 254, 250, 0.4); }
+.dark .bg-baby-powder { background-color: var(--bg-page); }
+.dark .bg-baby-powder\/80 { background-color: rgba(15, 26, 22, 0.8); }
+.dark .bg-kracht-gruen\/5 { background-color: rgba(255, 254, 250, 0.05); }
+.dark .bg-kracht-gruen\/8 { background-color: rgba(255, 254, 250, 0.08); }
+.dark .bg-kracht-gruen\/10 { background-color: rgba(255, 254, 250, 0.1); }
+.dark .border-kracht-gruen\/8 { border-color: rgba(255, 254, 250, 0.08); }
+.dark .border-kracht-gruen\/10 { border-color: rgba(255, 254, 250, 0.1); }
+.dark .border-kracht-gruen\/12 { border-color: rgba(255, 254, 250, 0.12); }
+.dark .border-kracht-gruen\/15 { border-color: rgba(255, 254, 250, 0.15); }
+.dark .border-kracht-gruen\/20 { border-color: rgba(255, 254, 250, 0.2); }
+.dark .placeholder-kracht-gruen\/40::placeholder { color: rgba(255, 254, 250, 0.4); }
 
 html {
   scroll-behavior: smooth;
@@ -32,11 +63,12 @@ html {
 }
 
 body {
-  background: var(--baby-powder);
-  color: var(--kracht-gruen);
+  background: var(--bg-page);
+  color: var(--text-page);
   font-family: var(--font-montserrat);
   font-size: var(--text-body);
   line-height: var(--leading-body);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Subtle paper texture overlay (light grain) */
@@ -52,7 +84,7 @@ body::before {
 
 ::selection {
   background: rgba(255, 159, 28, 0.25);
-  color: var(--kracht-gruen);
+  color: var(--text-page);
 }
 
 /* Staggered fade-in for sections (respect reduced motion) */
