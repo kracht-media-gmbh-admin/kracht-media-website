@@ -84,7 +84,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h2 id="video-heading" className="sr-only">
               Projektvideo
             </h2>
-            <div className="overflow-hidden rounded-2xl border border-kracht-gruen/10 shadow-[var(--shadow-card)]">
+            <div className="overflow-hidden rounded-card border border-[#E5E5E5] shadow-[var(--shadow-card)] max-sm:shadow-none">
               <ProjectVideo src={project.videoUrl} title={project.title} />
             </div>
           </section>
@@ -103,7 +103,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.gallery.map((src, i) => (
                 <li
                   key={i}
-                  className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-kracht-gruen/10 shadow-[var(--shadow-soft)]"
+                  className="relative aspect-[4/3] overflow-hidden rounded-card border border-[#E5E5E5] shadow-[var(--shadow-soft)] max-sm:shadow-none"
                 >
                   <Image
                     src={src}

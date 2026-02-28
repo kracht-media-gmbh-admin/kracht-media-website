@@ -25,7 +25,7 @@ export function ServicesGrid({ categories }: ServicesGridProps) {
           <section
             key={category.id}
             id={category.id}
-            className={`${blockStagger} scroll-mt-24 rounded-2xl border-2 border-kracht-gruen/10 bg-baby-powder/80 p-6 shadow-[var(--shadow-card)] sm:p-8 lg:p-10`}
+            className={`${blockStagger} scroll-mt-24 rounded-card border border-[#E5E5E5] bg-baby-powder/80 p-6 shadow-[var(--shadow-card)] sm:p-8 lg:p-10 max-sm:shadow-none`}
             aria-labelledby={`${category.id}-heading`}
           >
             {/* Category header – clearly separate from items */}

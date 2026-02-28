@@ -9,8 +9,8 @@ export function FooterCtaToggle() {
       href="/contact"
       aria-label="Zum Kontakt – gemeinsam KRACH machen"
       className="
-        btn-hover px-6 py-3 rounded-full font-semibold text-baby-powder
-        bg-orange-web hover:bg-orange-web/90 active:bg-orange-web/80
+        btn-hover btn-hover-invert px-6 py-3 rounded-full font-semibold text-baby-powder
+        bg-orange-web active:bg-orange-web/80
         transition-colors duration-200
         focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-kracht-gruen
       "

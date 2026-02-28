@@ -16,14 +16,15 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       className={cn(
-        "group block overflow-hidden rounded-2xl border border-kracht-gruen/10 bg-baby-powder transition-all duration-300",
-        "hover:border-orange-web/30 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-1",
+        "group block overflow-hidden rounded-card border border-[#E5E5E5] bg-baby-powder transition-all duration-300",
+        "hover:border-orange-web/25 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5",
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder",
-        "shadow-[var(--shadow-card)]",
+        "shadow-[var(--shadow-card)] sm:shadow-[var(--shadow-card)]",
+        "max-sm:shadow-none",
         className
       )}
     >
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-card-inner m-1.5 sm:m-2">
         <Image
           src={project.coverImage}
           alt={project.title}

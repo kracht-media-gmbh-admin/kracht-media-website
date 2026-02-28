@@ -48,7 +48,7 @@ export default function ServicesPage() {
         className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32"
         aria-labelledby="cta-heading"
       >
-        <div className="rounded-2xl border-2 border-orange-web/30 bg-kracht-gruen/5 py-12 px-8 text-center sm:py-16 sm:px-12">
+        <div className="rounded-card border border-[#E5E5E5] bg-kracht-gruen/5 py-12 px-8 text-center sm:py-16 sm:px-12 max-sm:shadow-none shadow-[var(--shadow-card)]">
           <h2
             id="cta-heading"
             className="text-2xl font-bold leading-[1.1] text-kracht-gruen sm:text-3xl"
@@ -65,7 +65,7 @@ export default function ServicesPage() {
           </p>
           <Link
             href="/contact"
-            className="group btn-hover inline-flex items-center gap-2 rounded-lg bg-orange-web px-6 py-3.5 text-base font-semibold text-kracht-gruen transition-colors duration-200 hover:bg-orange-web/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder"
+            className="group btn-hover btn-hover-invert inline-flex items-center gap-2 rounded-lg bg-orange-web px-6 py-3.5 text-base font-semibold text-kracht-gruen focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder"
           >
             Zum Kontakt
             <span aria-hidden className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>

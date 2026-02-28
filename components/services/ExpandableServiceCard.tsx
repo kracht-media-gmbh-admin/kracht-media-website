@@ -36,7 +36,7 @@ export function ExpandableServiceCard({
       aria-labelledby={`${cardId}-label`}
       className={cn(
         staggerClass,
-        "group flex flex-col overflow-hidden rounded-xl border border-kracht-gruen/12 bg-baby-powder text-left shadow-[var(--shadow-soft)] transition-all duration-200 ease-out",
+        "group flex flex-col overflow-hidden rounded-card-inner border border-[#E5E5E5] bg-baby-powder text-left shadow-[var(--shadow-soft)] max-sm:shadow-none transition-all duration-200 ease-out",
         "hover:border-kracht-gruen/20 hover:shadow-[var(--shadow-card)]",
         "focus-within:ring-2 focus-within:ring-orange-web focus-within:ring-offset-2 focus-within:ring-offset-baby-powder",
         canExpand && "active:scale-[0.98] motion-reduce:active:scale-100",
@@ -52,7 +52,7 @@ export function ExpandableServiceCard({
         aria-expanded={isExpanded}
         id={`${cardId}-label`}
         className={cn(
-          "flex w-full items-center justify-between gap-3 px-5 py-4 transition-colors duration-200 sm:px-6 sm:py-5 rounded-t-xl",
+          "flex w-full items-center justify-between gap-3 px-5 py-4 transition-colors duration-200 sm:px-6 sm:py-5 rounded-t-card-inner",
           canExpand && "cursor-pointer hover:bg-kracht-gruen/8",
           !canExpand && "cursor-default"
         )}
@@ -108,7 +108,7 @@ export function ExpandableServiceCard({
             {(item.image || (item.subCategories && item.subCategories.length > 0)) && (
               <div className="mt-4 flex flex-col gap-4">
                 {item.image && (
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-kracht-gruen/10">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-[#E5E5E5]">
                     <Image
                       src={item.image}
                       alt=""

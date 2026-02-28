@@ -52,7 +52,7 @@ export default function Home() {
               Projekte, die gehört werden wollen.
             </p>
           </div>
-          <div className="relative animate-in animate-in-2 aspect-[16/10] overflow-hidden rounded-2xl border border-kracht-gruen/10 shadow-[var(--shadow-card)] sm:aspect-video">
+          <div className="relative animate-in animate-in-2 aspect-[16/10] overflow-hidden rounded-card border border-[#E5E5E5] shadow-[var(--shadow-card)] sm:aspect-video max-sm:shadow-none">
             <Image
               src={HERO_IMAGE}
               alt="Kracht Media – visuelle Produktion"

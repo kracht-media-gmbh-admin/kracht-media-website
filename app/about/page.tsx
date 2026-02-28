@@ -25,7 +25,7 @@ export default function AboutPage() {
         </h1>
 
         <div className="mt-14 grid gap-14 lg:mt-20 lg:grid-cols-2 lg:gap-20 lg:items-start">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-kracht-gruen/10 shadow-[var(--shadow-card)] sm:aspect-video lg:aspect-[4/3]">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-card border border-[#E5E5E5] shadow-[var(--shadow-card)] max-sm:shadow-none sm:aspect-video lg:aspect-[4/3]">
             <Image
               src={team.image}
               alt={`${team.name} – Team`}

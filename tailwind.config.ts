@@ -23,7 +23,11 @@ const config: Config = {
       },
       lineHeight: {
         headline: "1.1",
-        body: "1.45",
+        body: "1.6",
+      },
+      borderRadius: {
+        "card": "1.5rem",
+        "card-inner": "1.25rem",
       },
     },
   },
