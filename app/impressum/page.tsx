@@ -35,10 +35,10 @@ export default function ImpressumPage() {
         <section className="mb-10">
           <h2 className="text-lg font-semibold text-kracht-gruen mb-4">Kontakt</h2>
           <p className="text-base leading-[1.45] text-kracht-gruen/90 mb-2">
-            Telefon: <a href={phone.href} className="text-orange-web hover:underline">{phone.display}</a>
+            Telefon: <a href={phone.href} className="link-accent text-orange-web hover:text-orange-web/90">{phone.display}</a>
           </p>
           <p className="text-base leading-[1.45] text-kracht-gruen/90 mb-2">
-            E-Mail: <a href={email.href} className="text-orange-web hover:underline">{email.display}</a>
+            E-Mail: <a href={email.href} className="link-accent text-orange-web hover:text-orange-web/90">{email.display}</a>
           </p>
         </section>
 

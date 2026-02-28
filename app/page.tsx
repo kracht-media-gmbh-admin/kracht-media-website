@@ -89,10 +89,10 @@ export default function Home() {
         <p className="mt-14 text-center animate-in animate-in-6">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 font-semibold text-orange-web transition hover:gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
+            className="group link-accent inline-flex items-center gap-2 font-semibold text-orange-web transition-[gap,color] duration-200 hover:gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
           >
             Alle Projekte ansehen
-            <span aria-hidden>→</span>
+            <span aria-hidden className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
           </Link>
         </p>
       </section>

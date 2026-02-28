@@ -65,10 +65,10 @@ export default function ServicesPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-orange-web px-6 py-3.5 text-base font-semibold text-kracht-gruen transition-colors hover:bg-orange-web/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder"
+            className="group btn-hover inline-flex items-center gap-2 rounded-lg bg-orange-web px-6 py-3.5 text-base font-semibold text-kracht-gruen transition-colors duration-200 hover:bg-orange-web/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder"
           >
             Zum Kontakt
-            <span aria-hidden>→</span>
+            <span aria-hidden className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
           </Link>
         </div>
       </section>

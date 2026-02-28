@@ -29,7 +29,7 @@ export default function RootLayout({
       >
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-orange-web focus:text-kracht-gruen focus:font-semibold focus:rounded-md"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-orange-web focus:text-kracht-gruen focus:font-semibold focus:rounded-md focus:transition focus:duration-200 hover:bg-orange-web/90 focus:shadow-[0_4px_20px_rgba(255,159,28,0.35)]"
         >
           Zum Inhalt springen
         </a>

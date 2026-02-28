@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { COMPANY_INFO, LEGAL_ROUTES } from "@/lib/site";
+import { FooterCtaToggle } from "./FooterCtaToggle";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,27 +9,37 @@ export function Footer() {
 
   return (
     <footer
-      className="border-t border-kracht-gruen/10 bg-baby-powder"
+      className="bg-kracht-gruen text-baby-powder"
       role="contentinfo"
     >
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
-          <address className="not-italic text-sm leading-relaxed text-kracht-gruen/80">
-            <strong className="block font-semibold text-kracht-gruen">{name}</strong>
+        {/* CTA: gemeinsam richtig KRACH machen + YES toggle */}
+        <div className="flex flex-col items-center gap-6 pb-12 border-b border-white/10">
+          <h2 className="text-center text-xl sm:text-2xl font-semibold leading-headline">
+            <span className="text-white/80">gemeinsam richtig </span>
+            <span className="text-white font-bold">KRACH machen</span>
+          </h2>
+          <FooterCtaToggle />
+        </div>
+
+        {/* Columns: address, legal links */}
+        <div className="flex flex-col gap-10 pt-10 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
+          <address className="not-italic text-sm leading-relaxed text-white/80">
+            <strong className="block font-semibold text-baby-powder">{name}</strong>
             <span className="mt-1 block">
               {address.street}, {address.zip} {address.city}
             </span>
             <span className="mt-1 block">
               <a
                 href={phone.href}
-                className="hover:text-kracht-gruen transition-colors"
+                className="link-accent text-white/80 hover:text-orange-web transition-colors duration-200"
               >
                 {phone.display}
               </a>
               {" · "}
               <a
                 href={emailInfo.href}
-                className="hover:text-kracht-gruen transition-colors"
+                className="link-accent text-white/80 hover:text-orange-web transition-colors duration-200"
               >
                 {emailInfo.display}
               </a>
@@ -40,8 +51,8 @@ export function Footer() {
                 <Link
                   href={href}
                   className={cn(
-                    "text-sm text-kracht-gruen/75 hover:text-orange-web transition-colors duration-200",
-                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
+                    "link-accent text-sm text-white/75 hover:text-orange-web transition-colors duration-200",
+                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-kracht-gruen rounded"
                   )}
                 >
                   {routeName}
@@ -50,9 +61,16 @@ export function Footer() {
             ))}
           </ul>
         </div>
-        <p className="mt-10 pt-8 border-t border-kracht-gruen/10 text-sm text-kracht-gruen/60">
-          © {currentYear} Kracht Media GmbH. Alle Rechte vorbehalten.
-        </p>
+
+        {/* Bottom: KRACHT MEDIA (left) + copyright */}
+        <div className="mt-10 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-white/10">
+          <span className="text-lg font-bold tracking-wide text-baby-powder uppercase order-2 sm:order-1">
+            KRACHT MEDIA
+          </span>
+          <p className="text-sm text-white/60 order-1 sm:order-2">
+            © {currentYear} Kracht Media GmbH. Alle Rechte vorbehalten.
+          </p>
+        </div>
       </div>
     </footer>
   );

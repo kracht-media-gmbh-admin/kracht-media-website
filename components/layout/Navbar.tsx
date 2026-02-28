@@ -14,7 +14,7 @@ const navLinks = [
 ] as const;
 
 const linkBase =
-  "text-sm font-medium text-kracht-gruen/75 hover:text-kracht-gruen transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded";
+  "nav-link-hover text-sm font-medium text-kracht-gruen/75 hover:text-kracht-gruen transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -52,7 +52,7 @@ export function Navbar() {
           href="/"
           className={cn(
             "text-base font-bold tracking-tight text-kracht-gruen sm:text-lg",
-            "transition hover:text-orange-web",
+            "transition-colors duration-200 hover:text-orange-web",
             "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder rounded"
           )}
         >
@@ -76,7 +76,8 @@ export function Navbar() {
           onClick={() => setMobileOpen((o) => !o)}
           className={cn(
             "flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md text-kracht-gruen",
-            "hover:bg-kracht-gruen/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder md:hidden"
+            "transition-colors duration-200 hover:bg-kracht-gruen/10 hover:text-orange-web active:scale-95",
+            "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder md:hidden"
           )}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
@@ -84,19 +85,19 @@ export function Navbar() {
         >
           <span
             className={cn(
-              "h-0.5 w-5 bg-current transition-all duration-200",
+              "h-0.5 w-5 bg-current transition-all duration-150",
               mobileOpen && "translate-y-2 rotate-45"
             )}
           />
           <span
             className={cn(
-              "h-0.5 w-5 bg-current transition-all duration-200",
+              "h-0.5 w-5 bg-current transition-all duration-150",
               mobileOpen && "opacity-0"
             )}
           />
           <span
             className={cn(
-              "h-0.5 w-5 bg-current transition-all duration-200",
+              "h-0.5 w-5 bg-current transition-all duration-150",
               mobileOpen && "-translate-y-2 -rotate-45"
             )}
           />
@@ -107,7 +108,7 @@ export function Navbar() {
       <div
         id="mobile-nav"
         className={cn(
-          "grid overflow-hidden border-t border-kracht-gruen/8 bg-baby-powder/98 transition-[grid-template-rows] duration-200 ease-out md:hidden",
+          "grid overflow-hidden border-t border-kracht-gruen/8 bg-baby-powder/98 transition-[grid-template-rows] duration-150 ease-out md:hidden",
           mobileOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         )}
         aria-hidden={!mobileOpen}
@@ -120,7 +121,8 @@ export function Navbar() {
                   href={href}
                   onClick={closeMenu}
                   className={cn(
-                    "block px-4 py-3 text-base font-medium text-kracht-gruen/90 hover:bg-kracht-gruen/5 hover:text-kracht-gruen",
+                    "block px-4 py-3 text-base font-medium text-kracht-gruen/90 transition-colors duration-200",
+                    "hover:bg-kracht-gruen/8 hover:text-kracht-gruen",
                     linkBase
                   )}
                 >

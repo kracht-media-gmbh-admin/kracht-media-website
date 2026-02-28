@@ -21,7 +21,7 @@ export default function AccessibilityPage() {
           Wir bemühen uns, diese Website für alle Nutzer zugänglich zu gestalten. Dazu zählen klare Strukturen, ausreichende Kontraste und die Möglichkeit, mit Tastatur und Screenreadern zu navigieren.
         </p>
         <p className="text-base leading-[1.45] text-kracht-gruen/90">
-          Wenn Sie auf Barrieren stoßen oder Verbesserungsvorschläge haben, melden Sie sich gern unter <a href="mailto:office@kracht.at" className="text-orange-web hover:underline">office@kracht.at</a>.
+          Wenn Sie auf Barrieren stoßen oder Verbesserungsvorschläge haben, melden Sie sich gern unter <a href="mailto:office@kracht.at" className="link-accent text-orange-web hover:text-orange-web/90">office@kracht.at</a>.
         </p>
       </div>
     </main>

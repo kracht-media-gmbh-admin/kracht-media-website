@@ -62,7 +62,7 @@ export default function DatenschutzPage() {
         <section className="mb-10">
           <h2 className="text-lg font-semibold text-kracht-gruen mb-4">6. Cookies</h2>
           <p className="text-base leading-[1.45] text-kracht-gruen/90">
-            Informationen zur Verwendung von Cookies finden Sie auf unserer Seite <a href="/cookies" className="text-orange-web hover:underline">Cookies</a>.
+            Informationen zur Verwendung von Cookies finden Sie auf unserer Seite <a href="/cookies" className="link-accent text-orange-web hover:text-orange-web/90">Cookies</a>.
           </p>
         </section>
 

@@ -58,9 +58,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 md:p-10 lg:p-12">
           <Link
             href="/projects"
-            className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-baby-powder/90 hover:text-baby-powder transition-colors w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-baby-powder focus-visible:ring-offset-2 focus-visible:ring-offset-kracht-gruen rounded"
+            className="group mb-4 inline-flex items-center gap-2 text-sm font-medium text-baby-powder/90 hover:text-baby-powder transition-colors duration-200 w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-baby-powder focus-visible:ring-offset-2 focus-visible:ring-offset-kracht-gruen rounded"
           >
-            <span aria-hidden>←</span> Alle Projekte
+            <span aria-hidden className="inline-block transition-transform duration-200 group-hover:-translate-x-0.5">←</span> Alle Projekte
           </Link>
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-baby-powder/90">
             {project.category}

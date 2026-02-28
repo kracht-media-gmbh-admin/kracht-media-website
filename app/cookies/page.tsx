@@ -54,7 +54,7 @@ export default function CookiesPage() {
         <section>
           <h2 className="text-lg font-semibold text-kracht-gruen mb-4">Weitere Informationen</h2>
           <p className="text-base leading-[1.45] text-kracht-gruen/90">
-            Weitere Details zur Datenverarbeitung finden Sie in unserer <a href="/datenschutz" className="text-orange-web hover:underline">Datenschutzerklärung</a>.
+            Weitere Details zur Datenverarbeitung finden Sie in unserer <a href="/datenschutz" className="link-accent text-orange-web hover:text-orange-web/90">Datenschutzerklärung</a>.
           </p>
         </section>
       </div>
