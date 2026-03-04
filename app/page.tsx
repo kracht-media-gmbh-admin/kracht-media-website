@@ -88,7 +88,7 @@ export default function Home() {
           </h2>
           <ul className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
             {topProjects.map((project) => (
-              <li key={project.id}>
+              <li key={project.id} className="h-full">
                 <ProjectCard project={project} />
               </li>
             ))}

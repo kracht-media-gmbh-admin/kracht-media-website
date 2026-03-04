@@ -75,9 +75,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </header>
 
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
-        <p className="text-base leading-[1.55] text-kracht-gruen/90 sm:text-lg">
-          {project.detailText}
-        </p>
+        <div className="space-y-6">
+          {project.detailText.split(/\n\n+/).map((block, i) => (
+            <p
+              key={i}
+              className={
+                block.includes("\n") && block.trim().length > 0
+                  ? "text-base leading-[1.55] text-kracht-gruen/90 sm:text-lg whitespace-pre-line"
+                  : "text-base leading-[1.55] text-kracht-gruen/90 sm:text-lg"
+              }
+            >
+              {block.trim()}
+            </p>
+          ))}
+        </div>
 
         {project.videoUrl && (
           <section className="mt-12" aria-labelledby="video-heading">

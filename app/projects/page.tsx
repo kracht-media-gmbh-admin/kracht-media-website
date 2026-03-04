@@ -32,7 +32,7 @@ export default function ProjectsPage() {
         </h2>
         <ul className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3" aria-labelledby="projektliste-heading">
           {projects.map((project) => (
-            <li key={project.id}>
+            <li key={project.id} className="h-full">
               <ProjectCard project={project} />
             </li>
           ))}

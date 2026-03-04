@@ -16,15 +16,16 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       className={cn(
-        "group block overflow-hidden rounded-card border border-[#E5E5E5] bg-baby-powder transition-all duration-300",
+        "group flex h-full flex-col overflow-hidden rounded-card border border-kracht-gruen/12 bg-baby-powder bg-project-card-dark transition-all duration-300",
+        "dark:border-kracht-gruen/20",
         "hover:border-orange-web/25 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-web focus-visible:ring-offset-2 focus-visible:ring-offset-baby-powder dark:focus-visible:ring-offset-[var(--bg-page)]",
         "shadow-[var(--shadow-card)] sm:shadow-[var(--shadow-card)]",
         "max-sm:shadow-none",
         className
       )}
     >
-      <div className="relative aspect-[16/10] overflow-hidden rounded-card-inner m-1.5 sm:m-2">
+      <div className="relative aspect-[16/10] shrink-0 overflow-hidden rounded-card-inner m-1.5 sm:m-2">
         <Image
           src={project.coverImage}
           alt={project.title}
@@ -39,19 +40,20 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
           className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"
           aria-hidden
         />
+        {/* Hover overlay: green tint in light, subtle light in dark for contrast */}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-kracht-gruen/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-t from-kracht-gruen/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none dark:from-black/50 dark:via-transparent dark:to-transparent"
           aria-hidden
         />
       </div>
-      <div className="p-5 sm:p-6">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-kracht-gruen/60">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-page-muted-60)]">
           {project.category}
         </span>
-        <h3 className="mt-2 text-xl font-semibold leading-[1.15] text-kracht-gruen transition-colors duration-200 group-hover:text-orange-web">
+        <h3 className="mt-2 text-xl font-semibold leading-[1.15] text-[var(--text-page)] transition-colors duration-200 group-hover:text-orange-web">
           {project.title}
         </h3>
-        <p className="mt-2 line-clamp-2 text-sm leading-[1.5] text-kracht-gruen/75">
+        <p className="mt-2 line-clamp-2 text-sm leading-[1.5] text-[var(--text-page-muted)]">
           {project.description}
         </p>
       </div>
