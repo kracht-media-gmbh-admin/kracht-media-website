@@ -20,8 +20,8 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "borgall_wiener_neustadt_2024",
-    slug: "borgall_wiener_neustadt_2024",
+    id: "borgball_wiener_neustadt_2024",
+    slug: "borgball_wiener_neustadt_2024",
     title: "BORG Ball Wiener Neustadt",
     description:
       "Eventfotografie, die funktioniert. Seit 3 Jahren – Reportage, Portraits und Tanzflächen-Dynamik.",
