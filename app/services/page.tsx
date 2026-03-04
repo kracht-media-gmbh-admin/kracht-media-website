@@ -8,7 +8,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 export const metadata: Metadata = buildPageMetadata({
   title: "Leistungen",
   description:
-    "Kracht Media Leistungen: Events (Fotografie, Videografie, Foto-Shootings), Design (Corporate Branding, Social Marketing), IT-Service (Websites, KI, Workflow-Automatisierung).",
+    "Kracht Media Leistungen: Events (Fotografie, Videografie, Aftermovie), Design & Marketing (Corporate Design, Online Marketing), IT-Services (Websites, Prozessautomatisierung), Consulting (Marketing-Strategie, Mediaplanung, KI-Beratung).",
   path: "/services",
 });
 
@@ -31,12 +31,12 @@ export default function ServicesPage() {
           className="animate-in animate-in-2 max-w-2xl text-lg leading-[1.5] text-kracht-gruen/85 sm:text-xl"
           style={{ marginBottom: "0" }}
         >
-          Von Events über Design bis IT: wir liefern klare, kraftvolle Lösungen –
-          ohne Kompromisse an Qualität und Präzision.
+          Von Events über Design & Marketing und IT bis Consulting: klare, kraftvolle
+          Lösungen – ohne Kompromisse an Qualität und Präzision.
         </p>
       </section>
 
-      {/* Three distinct blocks: Events, Design, IT-Service */}
+      {/* Vier Bereiche: Events, Design & Marketing, IT-Services, Consulting */}
       <ScrollReveal>
         <section
           className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28"

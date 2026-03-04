@@ -1,20 +1,18 @@
 /**
  * Kracht Media – Leistungen (Services) nach Kategorien.
- * Struktur: Events, Design, IT-Service.
- *
- * ServiceItem: Alle Felder außer label sind optional. Beim Klick auf eine Karte
- * werden expandDescription, image und subCategories (falls gesetzt) angezeigt.
+ * Struktur: Events, Design & Marketing, IT-Services, Consulting.
+ * Keine Bilder; jeder Punkt hat einen kurzen Aufklapp-Text (expandDescription).
  */
 
 export interface ServiceItem {
   label: string;
   /** Kurzer Tooltip (z. B. beim Hover), optional */
   description?: string;
-  /** Text im ausgeklappten Zustand – leicht später änderbar */
+  /** Text im ausgeklappten Zustand */
   expandDescription?: string;
-  /** Bild-URL im ausgeklappten Zustand (optional) */
+  /** Bild-URL (auf Leistungsseite nicht genutzt) */
   image?: string;
-  /** Unterpunkte / Sub-Kategorien, die unter dem Text aufgelistet werden (optional) */
+  /** Unterpunkte (auf Leistungsseite nicht genutzt) */
   subCategories?: string[];
 }
 
@@ -36,56 +34,87 @@ export const serviceCategories: ServiceCategory[] = [
       {
         label: "Fotografie",
         expandDescription:
-          "Ob Produkt, Portrait oder Event: wir setzen Licht und Perspektive gezielt ein und liefern Bilder, die ankommen.",
-        image: "https://picsum.photos/seed/kracht-foto/800/500",
-        subCategories: ["Produktfotografie", "Portrait", "Event-Reportage"],
+          "Professionelle Event-Fotografie, die Stimmung und Momente festhält – scharf, authentisch und sofort einsatzbereit für Ihre Kanäle.",
       },
-      { label: "Videografie" },
-      { label: "Foto-Shootings" },
-      { label: "Event-Dokumentation" },
-      { label: "Live-Streaming" },
-      { label: "After-Movie & Highlights" },
+      {
+        label: "Portraitfotografie",
+        expandDescription:
+          "Individuelle Porträts für Personal, Führung oder Kampagnen. Kontrolliertes Setting, starke Ausstrahlung – für Website, Social und Print.",
+      },
+      {
+        label: "Videografie",
+        expandDescription:
+          "Bewegtbild von der Dokumentation bis zur Inszenierung. Klare Bildsprache, durchdachter Schnitt, fertig für alle Formate und Plattformen.",
+      },
+      {
+        label: "Highlight Reels / Aftermovie",
+        expandDescription:
+          "Verdichtete Erlebnisse: die besten Momente Ihres Events, emotional und shareable – für Social, Website und Archiv.",
+      },
     ],
   },
   {
-    id: "design",
-    title: "Design",
+    id: "design-marketing",
+    title: "Design & Marketing",
     teaser:
-      "Klare Markensprache, starke Kampagnen. Von der Corporate Identity bis zu Social und klassischem Marketing.",
+      "Klare Markensprache, starke Kampagnen. Von Corporate Design bis Online Marketing.",
     items: [
       {
-        label: "Corporate Branding",
+        label: "Corporate Design",
         expandDescription:
-          "Von Logo und CI bis zu Guidelines und Anwendungen: eine stimmige Markenwelt, die Vertrauen schafft und wiedererkannt wird.",
-        subCategories: ["Logo & CI", "Styleguides", "Brand Applications"],
+          "Eine stimmige visuelle Identität – von Logo und CI bis zu Anwendungen. Wiedererkennung und Vertrauen durch klare, konsistente Gestaltung.",
       },
-      { label: "Ad Creation & Werbung" },
-      { label: "Social Marketing" },
-      { label: "Marketing allgemein" },
-      { label: "Print & digitale Medien" },
+      {
+        label: "Design (allgemein)",
+        expandDescription:
+          "Print, Digital, Kampagnen: reduziert und kraftvoll, abgestimmt auf Ihre Marke und Ziele. Von Key Visuals bis zu vollständigen Kampagnen.",
+      },
+      {
+        label: "Online Marketing",
+        expandDescription:
+          "Sichtbarkeit und Reichweite im Netz. Von Social Media über Kampagnen bis zu zielgerichteter Ansprache – messbar und wirksam.",
+      },
     ],
   },
   {
-    id: "it-service",
-    title: "IT-Service",
+    id: "it-services",
+    title: "IT-Services",
     teaser:
       "Websites, Automatisierung, KI: digitale Infrastruktur, die trägt und skaliert.",
     items: [
       {
-        label: "Websites & Web-Apps",
+        label: "Websites (Kreation und Verwaltung)",
         expandDescription:
-          "Moderne, schnelle Websites und Web-Apps – von der Landing Page bis zur plattformunabhängigen Anwendung. Responsive, barrierefrei und suchmaschinenfreundlich.",
-        image: "https://picsum.photos/seed/kracht-web/800/500",
-        subCategories: ["Landing Pages", "Corporate Websites", "Web-Apps", "E-Commerce"],
+          "Moderne Websites von der Idee bis zum Launch – und optional Betreuung, Updates und Erweiterungen aus einer Hand. Responsive, schnell und suchmaschinenfreundlich.",
       },
       {
-        label: "KI-Lösungen",
+        label: "Prozessautomatisierung",
         expandDescription:
-          "KI sinnvoll integriert: von Chatbots über Prozessoptimierung bis zu maßgeschneiderten Modellen für Ihre Use-Cases.",
-        subCategories: ["Integration", "Automatisierung", "Custom Models"],
+          "Weniger manuelle Arbeit, mehr Fokus aufs Wesentliche. E-Mail-Automatisierung, KI-Einbindung, Workflows – maßgeschneidert, wartbar und erweiterbar.",
       },
-      { label: "Workflow-Automatisierung" },
-      { label: "Digitale Prozesse" },
+    ],
+  },
+  {
+    id: "consulting",
+    title: "Consulting",
+    teaser:
+      "Strategie, Mediaplanung, KI: klare Entscheidungsgrundlagen und nächste Schritte.",
+    items: [
+      {
+        label: "Marketing-Strategie",
+        expandDescription:
+          "Klarheit in Zielen, Zielgruppen und Botschaften. Wir entwickeln mit Ihnen eine schlüssige Strategie und priorisieren die nächsten Schritte – ohne Ballast.",
+      },
+      {
+        label: "Mediaplanung",
+        expandDescription:
+          "Wo und wie Sie am besten investieren. Von Kanälen über Formate bis zum Budget – durchdacht, nachvollziehbar und auf Ihre Ziele ausgerichtet.",
+      },
+      {
+        label: "KI-Beratung",
+        expandDescription:
+          "Wo KI wirklich Nutzen bringt, welche Use-Cases passen und wie Sie sie sicher und zielgerichtet einführen. Praxisnah und ohne Hype.",
+      },
     ],
   },
 ];

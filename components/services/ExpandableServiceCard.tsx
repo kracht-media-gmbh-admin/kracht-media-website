@@ -1,11 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { type ServiceItem } from "@/lib/services";
 import { cn } from "@/lib/utils";
-
-const BLUR =
-  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDBAMBAAAAAAAAAAAAAQIDAAQRBRIhMQYTQVFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEEA/AL+napeW1nDBBcyxxRqFREcgKPQFFS7j5C4SaREmlVVYgDeeBRU2Z2J7MRQqgYn//2Q==";
 
 interface ExpandableServiceCardProps {
   item: ServiceItem;
@@ -17,8 +13,7 @@ interface ExpandableServiceCardProps {
   flat?: boolean;
 }
 
-const hasExpandContent = (item: ServiceItem) =>
-  Boolean(item.expandDescription || item.image || (item.subCategories && item.subCategories.length > 0));
+const hasExpandContent = (item: ServiceItem) => Boolean(item.expandDescription);
 
 export function ExpandableServiceCard({
   item,
@@ -60,7 +55,7 @@ export function ExpandableServiceCard({
         id={`${cardId}-label`}
         className={cn(
           "flex w-full items-center justify-between gap-3 py-5 transition-colors duration-200 sm:py-6",
-          flat ? "px-0" : "px-5 sm:px-6 rounded-t-card-inner",
+          flat ? "px-3 sm:px-4" : "px-5 sm:px-6 rounded-t-card-inner",
           canExpand && "cursor-pointer hover:bg-transparent",
           !flat && canExpand && "hover:bg-kracht-gruen/8",
           !canExpand && "cursor-default"
@@ -112,40 +107,13 @@ export function ExpandableServiceCard({
           <div
             className={cn(
               "border-t border-[#E5E5E5] pb-6 pt-4 sm:pb-8 sm:pt-5",
-              flat ? "px-0" : "px-5 sm:px-6"
+              flat ? "px-3 sm:px-4" : "px-5 sm:px-6"
             )}
           >
             {item.expandDescription && (
               <p className="text-sm leading-[1.6] text-kracht-gruen/85">
                 {item.expandDescription}
               </p>
-            )}
-            {(item.image || (item.subCategories && item.subCategories.length > 0)) && (
-              <div className="mt-4 flex flex-col gap-4">
-                {item.image && (
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-[#E5E5E5]">
-                    <Image
-                      src={item.image}
-                      alt=""
-                      fill
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      className="object-cover"
-                      placeholder="blur"
-                      blurDataURL={BLUR}
-                    />
-                  </div>
-                )}
-                {item.subCategories && item.subCategories.length > 0 && (
-                  <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-kracht-gruen/75" role="list">
-                    {item.subCategories.map((sub, i) => (
-                      <li key={sub} className="inline">
-                        {i > 0 && <span className="text-kracht-gruen/40" aria-hidden> · </span>}
-                        <span>{sub}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
             )}
           </div>
         </div>
