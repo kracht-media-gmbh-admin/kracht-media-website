@@ -1,6 +1,6 @@
-import { COMPANY_INFO, SOCIAL_LINKS } from "@/lib/site";
+import { COMPANY_INFO, SITE_URL, SOCIAL_LINKS } from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kracht.at";
+const siteUrl = SITE_URL;
 
 /**
  * Schema.org JSON-LD für LocalBusiness (Fotografie, Videografie, IT-Services).

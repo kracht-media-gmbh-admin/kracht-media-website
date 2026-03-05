@@ -12,7 +12,7 @@ Erstelle im Projektroot eine Datei `.env.local` (wird von Git ignoriert) und tra
 
 ```env
 # Öffentliche URL der Live-Website (für Sitemap, Robots, OG-URLs)
-NEXT_PUBLIC_SITE_URL=https://krachtmedia.com
+NEXT_PUBLIC_SITE_URL=https://kracht.at
 
 # Resend: API-Key für das Kontaktformular (sendet an office@kracht.at; siehe Abschnitt 3)
 RESEND_API_KEY=re_xxxxxxxxxxxx
@@ -20,7 +20,7 @@ RESEND_API_KEY=re_xxxxxxxxxxxx
 # RESEND_FROM=
 ```
 
-- **NEXT_PUBLIC_SITE_URL**: Exakt die URL, unter der die Seite erreichbar ist (ohne trailing slash). Wird für `metadataBase`, Sitemap, `robots.txt` und Open-Graph-URLs genutzt. Ohne Setzen wird `https://krachtmedia.com` als Fallback verwendet.
+- **NEXT_PUBLIC_SITE_URL**: Exakt die URL, unter der die Seite erreichbar ist (ohne trailing slash). Wird für `metadataBase`, Sitemap, `robots.txt` und Open-Graph-URLs genutzt. Ohne Setzen wird `https://kracht.at` als Fallback verwendet.
 - **RESEND_API_KEY**: Erforderlich, damit das Kontaktformular E-Mails an office@kracht.at sendet (Abschnitt 3).
 - **RESEND_FROM** (optional): Eigene Absender-Adresse nach Domain-Verifizierung bei Resend; sonst wird der Test-Absender genutzt.
 
@@ -28,7 +28,7 @@ RESEND_API_KEY=re_xxxxxxxxxxxx
 
 Unter **Vercel → Projekt → Settings → Environment Variables** dieselben Variablen anlegen:
 
-- `NEXT_PUBLIC_SITE_URL` = deine finale Domain (z. B. `https://krachtmedia.com`)
+- `NEXT_PUBLIC_SITE_URL` = deine finale Domain (z. B. `https://kracht.at`)
 - `RESEND_API_KEY` = dein Resend API Key (Kontaktformular sendet an office@kracht.at); optional `RESEND_FROM`
 
 Nach Änderungen ggf. Redeploy auslösen.
@@ -47,7 +47,7 @@ Nach Änderungen ggf. Redeploy auslösen.
 
 | Aufgabe | Details |
 |--------|--------|
-| **NEXT_PUBLIC_SITE_URL setzen** | In Vercel und lokal auf die echte Domain setzen (z. B. `https://krachtmedia.com`), damit Sitemap, Canonical und OG-URLs stimmen. |
+| **NEXT_PUBLIC_SITE_URL setzen** | In Vercel und lokal auf die echte Domain setzen (z. B. `https://kracht.at`), damit Sitemap, Canonical und OG-URLs stimmen. |
 | **OG-Bild bereitstellen** | Die App erwartet ein Bild unter **`/og-default.png`** (Root: `public/og-default.png`). Format: 1200×630 px, für Social-Sharing. Fehlt es, können Soziale Netzwerke ein Standard-Vorschaubild anzeigen oder keins. |
 | **Google Search Console** | Domain bei [Google Search Console](https://search.google.com/search-console) hinzufügen und Sitemap-URL eintragen: `https://deine-domain.com/sitemap.xml`. |
 | **Bing Webmaster** | Optional: [Bing Webmaster Tools](https://www.bing.com/webmasters), gleiche Sitemap-URL angeben. |
@@ -159,7 +159,7 @@ Wenn du GEO vorerst nicht nutzt, kannst du die Middleware so lassen – sie scha
 |--------|--------|
 | **Projekt verbinden** | Repo mit Vercel verbinden (GitHub/GitLab/Bitbucket). Build Command: `next build --webpack` (wie in `package.json`). |
 | **Env-Variablen** | `NEXT_PUBLIC_SITE_URL` und `RESEND_API_KEY` (optional `RESEND_FROM`) in Vercel setzen (siehe Abschnitt 1.2). |
-| **Domain** | Eigene Domain (z. B. krachtmedia.com) in Vercel unter Domains hinzufügen und DNS wie angegeben konfigurieren (A/CNAME). |
+| **Domain** | Eigene Domain (z. B. kracht.at) in Vercel unter Domains hinzufügen und DNS wie angegeben konfigurieren (A/CNAME). |
 | **HTTPS** | Von Vercel automatisch; nach Domain-Einrichtung prüfen, dass nur HTTPS verwendet wird (Redirect einstellbar). |
 
 ---

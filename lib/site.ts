@@ -3,6 +3,9 @@
  * Entspricht der Struktur aus _tmp/config/site.ts.
  */
 
+/** Canonische Website-URL (Sitemap, robots, Metadata, OG). Domain: kracht.at */
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kracht.at";
+
 export const COMPANY_INFO = {
   name: "Kracht Media GmbH",
   address: {

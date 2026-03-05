@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kracht.at";
+const siteUrl = SITE_URL;
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
