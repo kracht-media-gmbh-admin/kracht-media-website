@@ -22,7 +22,7 @@ function BlockRenderer({
   if (block.type === "meta") {
     return (
       <dl
-        className={`grid gap-x-4 gap-y-0.5 rounded-lg border border-kracht-gruen/10 bg-kracht-gruen/5 px-4 py-4 ${contentClasses.meta} sm:grid-cols-[auto_1fr] sm:px-5`}
+        className={`grid gap-x-4 gap-y-0.5 rounded-lg border border-kracht-gruen/10 bg-kracht-gruen/5 px-4 py-4 ${contentClasses.meta} sm:grid-cols-[minmax(0,10rem)_1fr] sm:px-5`}
         style={{ marginBottom: "1.5rem" }}
         aria-label="Projektinformationen"
       >
@@ -32,8 +32,8 @@ function BlockRenderer({
           const def = colon > 0 ? line.slice(colon + 2) : "";
           return (
             <span key={i} className="contents">
-              <dt className="font-medium text-kracht-gruen/80">{term}</dt>
-              <dd className="text-kracht-gruen/90">{def}</dd>
+              <dt className="min-w-0 font-medium text-kracht-gruen/80">{term}</dt>
+              <dd className="min-w-0 text-kracht-gruen/90">{def}</dd>
             </span>
           );
         })}

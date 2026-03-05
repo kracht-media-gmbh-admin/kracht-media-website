@@ -17,7 +17,23 @@ export function ContactForm({ className }: { className?: string }) {
       action={formAction}
       className={cn("flex flex-col gap-5", className)}
       aria-describedby={state?.message ? "form-status" : undefined}
+      noValidate
     >
+      {state?.message && (
+        <div
+          id="form-status"
+          role="status"
+          aria-live="polite"
+          className={cn(
+            "rounded-card-inner border-2 px-4 py-4 text-base font-semibold leading-body",
+            state.success
+              ? "border-kracht-gruen/30 bg-kracht-gruen/10 text-kracht-gruen dark:bg-kracht-gruen/15 dark:border-kracht-gruen/40"
+              : "border-orange-web/50 bg-orange-web/10 text-kracht-gruen dark:bg-orange-web/15 dark:border-orange-web/40"
+          )}
+        >
+          {state.message}
+        </div>
+      )}
       <div>
         <label
           htmlFor="name"
@@ -29,7 +45,6 @@ export function ContactForm({ className }: { className?: string }) {
           id="name"
           name="name"
           type="text"
-          required
           autoComplete="name"
           disabled={isPending}
           className={inputClass}
@@ -45,11 +60,32 @@ export function ContactForm({ className }: { className?: string }) {
         <input
           id="email"
           name="email"
-          type="email"
-          required
+          type="text"
+          inputMode="email"
           autoComplete="email"
           disabled={isPending}
           className={inputClass}
+          placeholder="z. B. name@beispiel.de"
+        />
+        <p className="mt-1 text-xs text-[var(--text-page-muted-50)]">
+          E-Mail, Telefon oder beides angeben (mindestens eines).
+        </p>
+      </div>
+      <div>
+        <label
+          htmlFor="phone"
+          className="block text-sm font-semibold text-[var(--text-page)]"
+        >
+          Telefon (optional)
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          disabled={isPending}
+          className={inputClass}
+          placeholder="z. B. +43 660 1234567"
         />
       </div>
       <div>
@@ -57,30 +93,16 @@ export function ContactForm({ className }: { className?: string }) {
           htmlFor="message"
           className="block text-sm font-semibold text-[var(--text-page)]"
         >
-          Nachricht
+          Nachricht <span className="font-normal text-[var(--text-page-muted-50)]">(mind. 10 Zeichen)</span>
         </label>
         <textarea
           id="message"
           name="message"
           rows={4}
-          required
           disabled={isPending}
           className={cn(inputClass, "resize-y min-h-[120px] border-b")}
         />
       </div>
-      {state?.message && (
-        <p
-          id="form-status"
-          role="status"
-          aria-live="polite"
-          className={cn(
-            "text-sm font-medium",
-            state.success ? "text-[var(--text-page)]" : "text-orange-web"
-          )}
-        >
-          {state.message}
-        </p>
-      )}
       <button
         type="submit"
         disabled={isPending}
@@ -91,7 +113,7 @@ export function ContactForm({ className }: { className?: string }) {
         {isPending ? "Wird gesendet …" : "Nachricht senden"}
       </button>
       <p className="text-xs leading-relaxed text-[var(--text-page-muted-50)]">
-        Mit dem Absenden dieser Anfrage werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht)
+        Mit dem Absenden dieser Anfrage werden Ihre Angaben (Name, E-Mail bzw. Telefon, Nachricht)
         zur Bearbeitung Ihres Anliegens verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b
         und f DSGVO. Die Übermittlung erfolgt verschlüsselt über Resend (USA). Weitere
         Informationen finden Sie in unserer{" "}
