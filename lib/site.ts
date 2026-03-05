@@ -11,8 +11,8 @@ export const COMPANY_INFO = {
     city: "Walpersbach",
   },
   phone: {
-    display: "0660 7213377",
-    href: "tel:06607213377",
+    display: "0660 7123377",
+    href: "tel:06607123377",
   },
   email: {
     display: "office@kracht.at",

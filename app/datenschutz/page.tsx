@@ -40,8 +40,8 @@ export default function DatenschutzPage() {
           </p>
           <p className={`${p} mb-1`}>
             Telefon:{" "}
-            <a href="tel:06607213377" className="link-accent text-orange-web hover:text-orange-web/90">
-              0660 7213377
+            <a href="tel:06607123377" className="link-accent text-orange-web hover:text-orange-web/90">
+              0660 7123377
             </a>
           </p>
           <p className={`${p} mt-3`}>
