@@ -50,7 +50,7 @@ export const contactFormSchema = z
         .email("Bitte geben Sie eine gültige E-Mail-Adresse an.")
         .safeParse(email);
       if (!emailResult.success) {
-        const msg = emailResult.error.errors[0]?.message;
+        const msg = emailResult.error.issues[0]?.message;
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: typeof msg === "string" ? msg : "Ungültiges E-Mail-Format.",
