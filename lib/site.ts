@@ -20,6 +20,12 @@ export const COMPANY_INFO = {
   },
 } as const;
 
+/** Soziale Netzwerke – offizielle Kracht Media Profile */
+export const SOCIAL_LINKS = [
+  { name: "Facebook", href: "https://www.facebook.com/kracht.at", label: "Kracht Media auf Facebook" },
+  { name: "Instagram", href: "https://www.instagram.com/kracht.at/", label: "Kracht Media auf Instagram" },
+] as const;
+
 export const LEGAL_ROUTES = [
   { name: "Impressum", href: "/impressum" },
   { name: "Datenschutz", href: "/datenschutz" },

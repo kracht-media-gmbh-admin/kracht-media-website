@@ -1,4 +1,4 @@
-import { COMPANY_INFO } from "@/lib/site";
+import { COMPANY_INFO, SOCIAL_LINKS } from "@/lib/site";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kracht.at";
 
@@ -38,6 +38,7 @@ export function LocalBusinessJsonLd() {
       "IT-Services",
       "Digitale Erlebnisse",
     ],
+    sameAs: SOCIAL_LINKS.map((s) => s.href),
   };
 
   return (
